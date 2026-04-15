@@ -1,0 +1,466 @@
+/* ============================================================
+   SHADOWFORGE — INSTALL PAGE STYLES
+   install.html uchun alohida to'liq stil.
+   Scary loading → verification → "Are You Sure?" screen.
+   ============================================================ */
+
+/* ── INSTALL PAGE BODY ───────────────────────────────────── */
+body.install-body {
+  background-color: var(--color-void);
+  overflow: hidden; /* No scroll during install */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── FULL SCREEN OVERLAY ─────────────────────────────────── */
+.install-overlay {
+  position: fixed; inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Blood drip top border */
+.install-overlay__drip {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--red-bright) 20%,
+    var(--red-core) 50%,
+    var(--red-bright) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 0 20px var(--red-bright), 0 0 40px rgba(255, 0, 21, 0.4);
+}
+
+/* ── STAGES CONTAINER ────────────────────────────────────── */
+.install-app {
+  position: relative;
+  z-index: var(--z-content);
+  width: 100%;
+  max-width: 680px;
+  padding: var(--space-8);
+}
+
+/* ── STAGE: LOADING ──────────────────────────────────────── */
+.stage {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fade-in 0.6s ease both;
+}
+
+.stage.is-active {
+  display: flex;
+}
+
+/* -- Stage: Init header */
+.stage__header {
+  margin-bottom: var(--space-12);
+}
+
+.stage__logo {
+  width: 56px; height: 56px;
+  margin: 0 auto var(--space-6);
+  filter: drop-shadow(0 0 16px rgba(255, 0, 21, 0.6));
+  animation: float-up-down 4s ease infinite;
+}
+
+.stage__title {
+  font-family: var(--font-heading);
+  font-size: var(--size-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  margin-bottom: var(--space-2);
+}
+
+.stage__subtitle {
+  font-family: var(--font-mono);
+  font-size: var(--size-sm);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-widest);
+}
+
+/* -- Step list */
+.install-steps__list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.install-step-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: rgba(12, 2, 24, 0.7);
+  font-family: var(--font-mono);
+  font-size: var(--size-sm);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  opacity: 0.3;
+  transition: all 0.5s ease;
+  text-align: left;
+}
+
+.install-step-item__icon {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--size-xs);
+  transition: all 0.4s ease;
+}
+
+.install-step-item__label { flex: 1; }
+
+.install-step-item__status {
+  font-size: var(--size-xs);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  transition: all 0.4s ease;
+  flex-shrink: 0;
+}
+
+/* Active state */
+.install-step-item--active {
+  opacity: 1;
+  color: var(--text-secondary);
+  border-color: var(--border-strong);
+  box-shadow: 0 0 24px rgba(102, 0, 204, 0.2);
+  animation: install-step-enter 0.4s ease both;
+}
+
+.install-step-item--active .install-step-item__icon {
+  border-color: var(--purple-mid);
+  background: rgba(102, 0, 204, 0.12);
+  color: var(--purple-glow);
+  animation: rotate-slow 2s linear infinite;
+}
+
+.install-step-item--active .install-step-item__status {
+  content: 'RUNNING';
+  border-color: var(--border-strong);
+  color: var(--purple-glow);
+}
+
+/* Done state */
+.install-step-item--done {
+  opacity: 0.8;
+  color: var(--text-green);
+  border-color: rgba(0, 255, 136, 0.2);
+}
+
+.install-step-item--done .install-step-item__icon {
+  border-color: rgba(0, 255, 136, 0.4);
+  background: rgba(0, 255, 136, 0.08);
+  color: var(--text-green);
+}
+
+.install-step-item--done .install-step-item__status {
+  color: var(--text-green);
+  border-color: rgba(0, 255, 136, 0.3);
+}
+
+/* -- Progress bar */
+.install-progress {
+  width: 100%;
+  margin-bottom: var(--space-6);
+}
+
+.install-progress__track {
+  width: 100%;
+  height: 3px;
+  background: rgba(102, 0, 204, 0.15);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-3);
+}
+
+.install-progress__fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(
+    90deg,
+    var(--purple-mid),
+    var(--red-bright)
+  );
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 8px var(--purple-mid);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.install-progress__label {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-wide);
+}
+
+.install-progress__pct {
+  color: var(--purple-glow);
+  font-weight: var(--weight-bold);
+}
+
+/* -- Log output */
+.install-log {
+  width: 100%;
+  background: rgba(4, 0, 10, 0.9);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  max-height: 120px;
+  overflow-y: auto;
+  margin-bottom: var(--space-6);
+  text-align: left;
+}
+
+.install-log__line {
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-wide);
+  line-height: 2;
+  display: block;
+}
+
+.install-log__line--ok   { color: var(--text-green); }
+.install-log__line--warn { color: var(--text-yellow); }
+.install-log__line--info { color: var(--purple-glow); }
+
+/* ── STAGE: ARE YOU SURE ─────────────────────────────────── */
+.confirm-stage { }
+
+.confirm__horror-wrap {
+  position: relative;
+  margin-bottom: var(--space-8);
+}
+
+/* Blood drips decoration */
+.confirm__drips {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-8);
+  margin-bottom: var(--space-4);
+}
+
+.confirm__drip {
+  width: 3px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--red-bright), transparent);
+  border-radius: var(--radius-full);
+  animation: drip-fall 2s ease infinite;
+  opacity: 0.7;
+}
+
+.confirm__drip:nth-child(2) { animation-delay: 0.3s; height: 55px; }
+.confirm__drip:nth-child(3) { animation-delay: 0.6s; height: 32px; }
+.confirm__drip:nth-child(4) { animation-delay: 0.9s; height: 48px; }
+.confirm__drip:nth-child(5) { animation-delay: 1.2s; height: 36px; }
+
+/* The scary question */
+.confirm__horror-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  color: var(--red-bright);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+  animation:
+    warning-pulse 2s ease infinite,
+    glitch-subtle 6s ease 2s infinite;
+}
+
+.confirm__horror-sub {
+  font-family: var(--font-mono);
+  font-size: var(--size-sm);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+/* Platform selection */
+.confirm__platforms {
+  width: 100%;
+  margin: var(--space-8) 0;
+}
+
+.confirm__platforms-label {
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  margin-bottom: var(--space-5);
+}
+
+.confirm__platform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.platform-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: rgba(12, 2, 24, 0.7);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.platform-btn:hover {
+  border-color: var(--border-red);
+  background: rgba(255, 0, 21, 0.06);
+  box-shadow: var(--glow-red-sm);
+  transform: translateY(-3px);
+}
+
+.platform-btn.is-selected {
+  border-color: var(--red-bright);
+  background: rgba(255, 0, 21, 0.1);
+  box-shadow: var(--glow-red-md);
+}
+
+.platform-btn__icon {
+  font-size: 1.8rem;
+  filter: grayscale(0.4);
+  transition: filter var(--transition-base);
+}
+
+.platform-btn:hover .platform-btn__icon,
+.platform-btn.is-selected .platform-btn__icon {
+  filter: grayscale(0);
+}
+
+.platform-btn__name {
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  transition: color var(--transition-base);
+}
+
+.platform-btn:hover .platform-btn__name,
+.platform-btn.is-selected .platform-btn__name {
+  color: var(--red-bright);
+}
+
+.platform-btn__ext {
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-ghost);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* Confirm action buttons */
+.confirm__actions {
+  display: flex;
+  gap: var(--space-4);
+  width: 100%;
+  justify-content: center;
+}
+
+/* ── STAGE: DOWNLOADING ──────────────────────────────────── */
+.download-stage { }
+
+.download__animation {
+  position: relative;
+  width: 100px; height: 100px;
+  margin: 0 auto var(--space-8);
+}
+
+.download__circle {
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--border-subtle);
+}
+
+.download__progress-ring {
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--red-bright);
+  border-right-color: rgba(255, 0, 21, 0.4);
+  animation: rotate-slow 1.5s linear infinite;
+  box-shadow: 0 0 12px rgba(255, 0, 21, 0.3);
+}
+
+.download__icon {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+}
+
+.download__speed {
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-widest);
+  margin-top: var(--space-6);
+}
+
+/* ── BUTTONS (Install page specific) ────────────────────── */
+.btn-install-confirm {
+  flex: 1;
+  padding: var(--space-5) var(--space-6);
+  font-family: var(--font-heading);
+  font-size: var(--size-base);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.btn-install-confirm--yes {
+  background: linear-gradient(135deg, var(--red-bright), var(--red-core));
+  color: #fff;
+  border: 1px solid transparent;
+  box-shadow: 0 0 30px rgba(255, 0, 21, 0.3);
+}
+
+.btn-install-confirm--yes:hover {
+  box-shadow: 0 0 50px rgba(255, 0, 21, 0.5), 0 0 100px rgba(255, 0, 21, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-install-confirm--no {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-install-confirm--no:hover {
+  color: var(--text-secondary);
+  border-color: var(--border-default);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .confirm__platform-grid { grid-template-columns: repeat(2, 1fr); }
+  .confirm__actions { flex-direction: column; }
+  .btn-install-confirm { width: 100%; }
+}

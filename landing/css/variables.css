@@ -1,0 +1,148 @@
+/* ============================================================
+   SHADOWFORGE — CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   All colors, fonts, spacing, shadows defined here.
+   Never hardcode values outside this file.
+   ============================================================ */
+
+:root {
+
+  /* ── CORE COLORS ─────────────────────────────────────────── */
+  --color-void:          #03000a;   /* Deepest black background */
+  --color-abyss:         #070010;   /* Slightly lighter black   */
+  --color-dark:          #0d0018;   /* Card backgrounds         */
+  --color-surface:       #120020;   /* Elevated surfaces        */
+  --color-surface-2:     #1a0030;   /* Higher elevation         */
+
+  /* ── PURPLE SPECTRUM ─────────────────────────────────────── */
+  --purple-deepest:      #1a0033;
+  --purple-dark:         #2d0057;
+  --purple-core:         #4a0080;
+  --purple-mid:          #6600cc;
+  --purple-bright:       #8800ff;
+  --purple-glow:         #aa44ff;
+  --purple-neon:         #cc88ff;
+
+  /* ── BLOOD RED SPECTRUM ──────────────────────────────────── */
+  --red-void:            #1a0003;
+  --red-dark:            #3d0008;
+  --red-core:            #7a0010;
+  --red-mid:             #cc0018;
+  --red-bright:          #ff0015;
+  --red-neon:            #ff4455;
+  --red-glow:            #ff6677;
+
+  /* ── TEXT COLORS ─────────────────────────────────────────── */
+  --text-primary:        #f0e8ff;
+  --text-secondary:      #a080c0;
+  --text-muted:          #5a4070;
+  --text-ghost:          #2d1a3d;
+  --text-red:            var(--red-bright);
+  --text-purple:         var(--purple-glow);
+  --text-green:          #00ff88;
+  --text-yellow:         #ffcc00;
+  --text-mono:           #8888bb;
+
+  /* ── BORDER COLORS ───────────────────────────────────────── */
+  --border-subtle:       rgba(102, 0, 204, 0.12);
+  --border-default:      rgba(102, 0, 204, 0.25);
+  --border-strong:       rgba(102, 0, 204, 0.5);
+  --border-red:          rgba(255, 0, 21, 0.2);
+  --border-red-strong:   rgba(255, 0, 21, 0.5);
+
+  /* ── GLOW / SHADOW ───────────────────────────────────────── */
+  --glow-purple-sm:      0 0 10px rgba(102, 0, 204, 0.4);
+  --glow-purple-md:      0 0 25px rgba(102, 0, 204, 0.5), 0 0 50px rgba(102, 0, 204, 0.2);
+  --glow-purple-lg:      0 0 40px rgba(102, 0, 204, 0.6), 0 0 80px rgba(102, 0, 204, 0.3);
+  --glow-red-sm:         0 0 10px rgba(255, 0, 21, 0.4);
+  --glow-red-md:         0 0 25px rgba(255, 0, 21, 0.5), 0 0 50px rgba(255, 0, 21, 0.2);
+  --glow-red-lg:         0 0 40px rgba(255, 0, 21, 0.6), 0 0 80px rgba(255, 0, 21, 0.3);
+  --shadow-card:         0 8px 32px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-elevated:     0 16px 48px rgba(0, 0, 0, 0.8), 0 4px 16px rgba(0, 0, 0, 0.5);
+
+  /* ── TYPOGRAPHY ──────────────────────────────────────────── */
+  --font-display:        'Nosifer', cursive;
+  --font-heading:        'Rajdhani', sans-serif;
+  --font-body:           'Rajdhani', sans-serif;
+  --font-mono:           'Share Tech Mono', monospace;
+
+  --size-xs:             0.65rem;
+  --size-sm:             0.8rem;
+  --size-base:           1rem;
+  --size-md:             1.15rem;
+  --size-lg:             1.4rem;
+  --size-xl:             1.8rem;
+  --size-2xl:            2.4rem;
+  --size-3xl:            3.2rem;
+  --size-4xl:            4.5rem;
+  --size-5xl:            6rem;
+
+  --weight-normal:       400;
+  --weight-medium:       500;
+  --weight-semibold:     600;
+  --weight-bold:         700;
+
+  --leading-tight:       1.1;
+  --leading-snug:        1.35;
+  --leading-normal:      1.6;
+  --leading-relaxed:     1.85;
+
+  --tracking-tight:      -0.03em;
+  --tracking-normal:     0;
+  --tracking-wide:       0.08em;
+  --tracking-wider:      0.15em;
+  --tracking-widest:     0.3em;
+
+  /* ── SPACING SCALE ───────────────────────────────────────── */
+  --space-1:    4px;
+  --space-2:    8px;
+  --space-3:    12px;
+  --space-4:    16px;
+  --space-5:    20px;
+  --space-6:    24px;
+  --space-8:    32px;
+  --space-10:   40px;
+  --space-12:   48px;
+  --space-16:   64px;
+  --space-20:   80px;
+  --space-24:   96px;
+  --space-32:   128px;
+
+  /* ── BORDER RADIUS ───────────────────────────────────────── */
+  --radius-sm:    2px;
+  --radius-md:    4px;
+  --radius-lg:    8px;
+  --radius-xl:    16px;
+  --radius-full:  9999px;
+
+  /* ── TRANSITIONS ─────────────────────────────────────────── */
+  --transition-fast:    0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base:    0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:    0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring:  0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Z-INDEX SCALE ───────────────────────────────────────── */
+  --z-background:  -10;
+  --z-canvas:       1;
+  --z-content:      10;
+  --z-floating:     50;
+  --z-navbar:       100;
+  --z-overlay:      200;
+  --z-modal:        300;
+  --z-toast:        400;
+
+  /* ── LAYOUT ──────────────────────────────────────────────── */
+  --container-sm:   640px;
+  --container-md:   768px;
+  --container-lg:   1024px;
+  --container-xl:   1200px;
+  --container-2xl:  1400px;
+  --navbar-height:  72px;
+}
+
+/* ── DARK MODE (always dark, this is just lock-in) ─────────── */
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Force dark even if OS is light */
+    color-scheme: dark;
+  }
+}

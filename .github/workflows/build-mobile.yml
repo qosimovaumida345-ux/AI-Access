@@ -1,0 +1,56 @@
+name: Build Mobile App (APK)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'mobile-app/**'
+      - '.github/workflows/build-mobile.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: mobile-app/package-lock.json
+
+      - name: Setup Expo
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: latest
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Install Dependencies
+        working-directory: ./mobile-app
+        run: npm ci
+
+      - name: Build APK
+        working-directory: ./mobile-app
+        run: eas build --platform android --profile preview --non-interactive --wait --json > build.json
+
+      - name: Download APK artifact from EAS
+        working-directory: ./mobile-app
+        shell: bash
+        run: |
+          APK_URL=$(node -e "const fs=require('fs');const data=JSON.parse(fs.readFileSync('build.json','utf8'));const build=Array.isArray(data)?data[0]:data;console.log(build?.artifacts?.buildUrl||'');")
+          if [ -z "$APK_URL" ]; then
+            echo "Could not find APK URL in build.json"
+            exit 1
+          fi
+          curl -L "$APK_URL" -o ai-access.apk
+        
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AI-Access-Android-APK
+          path: mobile-app/ai-access.apk

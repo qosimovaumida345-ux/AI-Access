@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Install — ShadowForge OS</title>
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/install-page.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ── NAVBAR ─────────────────────────────────────────── -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">◈</span>
+      <span class="logo-text">SHADOWFORGE OS</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#providers">Providers</a></li>
+      <li><a href="install.html" class="active">Install</a></li>
+      <li><a href="https://github.com/YOUR_USERNAME/shadowforge-os" target="_blank">GitHub</a></li>
+    </ul>
+    <a href="install.html" class="nav-cta">GET STARTED</a>
+  </div>
+</nav>
+
+<!-- ── PAGE HEADER ───────────────────────────────────── -->
+<section class="install-hero">
+  <div class="install-hero-inner">
+    <div class="install-tag">◈ INSTALLATION GUIDE</div>
+    <h1>Deploy <span class="accent-red">ShadowForge</span> in <span class="accent-purple">60 seconds</span></h1>
+    <p class="install-subtitle">One script. Zero config. AI-powered project generation starts immediately.</p>
+  </div>
+  <div class="install-glow"></div>
+</section>
+
+<!-- ── PLATFORM TABS ─────────────────────────────────── -->
+<section class="install-section">
+  <div class="container">
+
+    <div class="platform-tabs" id="platformTabs">
+      <button class="tab-btn active" data-platform="windows" onclick="switchPlatform('windows')">
+        <span class="tab-icon">⊞</span> Windows
+      </button>
+      <button class="tab-btn" data-platform="linux" onclick="switchPlatform('linux')">
+        <span class="tab-icon">🐧</span> Linux
+      </button>
+      <button class="tab-btn" data-platform="mac" onclick="switchPlatform('mac')">
+        <span class="tab-icon">⌘</span> macOS
+      </button>
+    </div>
+
+    <!-- ── WINDOWS ──────────────────────────────────── -->
+    <div class="platform-content active" id="platform-windows">
+
+      <div class="step-grid">
+
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3>Prerequisites</h3>
+          <p>Make sure Python 3.10+ is installed.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">PowerShell</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>python --version
+# Should output: Python 3.10+</code></pre>
+          </div>
+          <p class="step-note">
+            Don't have Python?
+            <a href="https://python.org/downloads" target="_blank">Download here →</a>
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3>Clone Repository</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">PowerShell</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>git clone https://github.com/YOUR_USERNAME/shadowforge-os.git
+cd shadowforge-os</code></pre>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3>Install Dependencies</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">PowerShell</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>pip install -r requirements.txt</code></pre>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <h3>Configure API Keys</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">PowerShell</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>copy app\config\.env.example app\.env
+notepad app\.env</code></pre>
+          </div>
+          <p class="step-note">Add at least one free API key. Groq is recommended.</p>
+        </div>
+
+        <div class="step-card step-card--launch">
+          <div class="step-number">05</div>
+          <h3>Launch ShadowForge</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">PowerShell</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>python app/core/main.py</code></pre>
+          </div>
+          <div class="launch-note">
+            <span class="launch-icon">◈</span>
+            The GUI will open. Tell the agent what to build!
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── LINUX ─────────────────────────────────────── -->
+    <div class="platform-content" id="platform-linux">
+
+      <div class="step-grid">
+
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3>Install Python & Git</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">Bash</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>sudo apt update
+sudo apt install python3 python3-pip git -y
+python3 --version</code></pre>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3>Clone & Enter</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">Bash</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>git clone https://github.com/YOUR_USERNAME/shadowforge-os.git
+cd shadowforge-os</code></pre>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3>Install Dependencies</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">Bash</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>pip3 install -r requirements.txt</code></pre>
+          </div>
+          <p class="step-note">On Ubuntu 22+ use: <code>pip3 install -r requirements.txt --break-system-packages</code></p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <h3>Setup Environment</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">Bash</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>cp app/config/.env.example app/.env
+nano app/.env</code></pre>
+          </div>
+        </div>
+
+        <div class="step-card step-card--launch">
+          <div class="step-number">05</div>
+          <h3>Run</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">Bash</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>python3 app/core/main.py</code></pre>
+          </div>
+          <div class="launch-note">
+            <span class="launch-icon">◈</span>
+            ShadowForge OS is now running!
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── MACOS ──────────────────────────────────────── -->
+    <div class="platform-content" id="platform-mac">
+
+      <div class="step-grid">
+
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3>Install Homebrew & Python</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">Terminal</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install python git</code></pre>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3>Clone Repository</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">Terminal</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>git clone https://github.com/YOUR_USERNAME/shadowforge-os.git
+cd shadowforge-os</code></pre>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3>Install Requirements</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">Terminal</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>pip3 install -r requirements.txt</code></pre>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <h3>Configure .env</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">Terminal</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>cp app/config/.env.example app/.env
+open -e app/.env</code></pre>
+          </div>
+        </div>
+
+        <div class="step-card step-card--launch">
+          <div class="step-number">05</div>
+          <h3>Launch</h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">Terminal</span>
+              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+            </div>
+            <pre><code>python3 app/core/main.py</code></pre>
+          </div>
+          <div class="launch-note">
+            <span class="launch-icon">◈</span>
+            ShadowForge OS is now running!
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FREE API KEYS ──────────────────────────────────── -->
+<section class="apikeys-section">
+  <div class="container">
+    <h2>Get Free API Keys</h2>
+    <p class="section-sub">ShadowForge runs on 100% free AI tiers. No credit card required.</p>
+
+    <div class="apikeys-grid">
+
+      <div class="apikey-card recommended">
+        <div class="apikey-badge">RECOMMENDED</div>
+        <div class="apikey-name">Groq</div>
+        <div class="apikey-desc">Fastest inference. Llama 3.3 70B free.</div>
+        <div class="apikey-limit">✓ Free forever · No card</div>
+        <a href="https://console.groq.com/keys" target="_blank" class="apikey-btn">Get Key →</a>
+      </div>
+
+      <div class="apikey-card">
+        <div class="apikey-name">OpenRouter</div>
+        <div class="apikey-desc">Access 100+ models. Many free options.</div>
+        <div class="apikey-limit">✓ Free tier available</div>
+        <a href="https://openrouter.ai/keys" target="_blank" class="apikey-btn">Get Key →</a>
+      </div>
+
+      <div class="apikey-card">
+        <div class="apikey-name">Together AI</div>
+        <div class="apikey-desc">Llama 3.3 70B Turbo — completely free.</div>
+        <div class="apikey-limit">✓ Free tier · No card</div>
+        <a href="https://api.together.xyz/settings/api-keys" target="_blank" class="apikey-btn">Get Key →</a>
+      </div>
+
+      <div class="apikey-card">
+        <div class="apikey-name">Google Gemini</div>
+        <div class="apikey-desc">Gemini 1.5 Flash — 1M context free.</div>
+        <div class="apikey-limit">✓ Free tier · Google account</div>
+        <a href="https://aistudio.google.com/app/apikey" target="_blank" class="apikey-btn">Get Key →</a>
+      </div>
+
+      <div class="apikey-card">
+        <div class="apikey-name">Mistral AI</div>
+        <div class="apikey-desc">Open-source models, strong at coding.</div>
+        <div class="apikey-limit">✓ Free open models</div>
+        <a href="https://console.mistral.ai/api-keys" target="_blank" class="apikey-btn">Get Key →</a>
+      </div>
+
+      <div class="apikey-card">
+        <div class="apikey-name">Hugging Face</div>
+        <div class="apikey-desc">Thousands of open-source models.</div>
+        <div class="apikey-limit">✓ Free · HF account</div>
+        <a href="https://huggingface.co/settings/tokens" target="_blank" class="apikey-btn">Get Key →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ───────────────────────────────────────────── -->
+<section class="faq-section">
+  <div class="container">
+    <h2>FAQ</h2>
+
+    <div class="faq-list">
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span>Does ShadowForge send my data anywhere?</span>
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          No. ShadowForge is a local application. It only contacts the AI provider APIs you configure.
+          Your prompts go to those APIs (Groq, OpenRouter, etc.) — never to us.
+          The app has no telemetry, no tracking, and no backend server.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span>Can it access my system files?</span>
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          No. The sandbox mode (enabled by default) restricts all file operations to
+          <code>~/shadowforge_workspace/</code> only. System directories, SSH keys,
+          browser data, and credentials are all blocked.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span>Is an internet connection required?</span>
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Yes — to call the AI provider APIs. The UI and local file operations work offline,
+          but AI responses require API access.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span>What if all providers fail?</span>
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          ShadowForge has an automatic fallback chain. It tries each configured provider
+          in priority order. If all fail, it reports a clear error and the agent enters
+          IDLE state — it never silently crashes.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span>Does it work without a GPU?</span>
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-a">
+          Yes. All AI inference runs on remote provider servers. ShadowForge only runs
+          the UI and orchestration logic locally. A basic laptop is enough.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────── -->
+<section class="install-cta">
+  <div class="container">
+    <div class="cta-inner">
+      <h2>Ready to build?</h2>
+      <p>Free. Local. No limits.</p>
+      <a href="https://github.com/YOUR_USERNAME/shadowforge-os" class="cta-btn" target="_blank">
+        ◈ VIEW ON GITHUB
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-logo">◈ SHADOWFORGE OS</span>
+      <span class="footer-copy">Open source. Free forever. No telemetry.</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="https://github.com/YOUR_USERNAME/shadowforge-os" target="_blank">GitHub</a>
+        <a href="https://github.com/YOUR_USERNAME/shadowforge-os/issues" target="_blank">Issues</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/navbar.js"></script>
+<script src="js/platform-detect.js"></script>
+<script>
+  // Platform tab switching
+  function switchPlatform(platform) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.platform-content').forEach(c => c.classList.remove('active'));
+    document.querySelector(`[data-platform="${platform}"]`).classList.add('active');
+    document.getElementById(`platform-${platform}`).classList.add('active');
+  }
+
+  // Copy code blocks
+  function copyCode(btn) {
+    const code = btn.closest('.code-block').querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      const orig = btn.innerText;
+      btn.innerText = 'COPIED!';
+      btn.style.color = '#00ff88';
+      setTimeout(() => { btn.innerText = orig; btn.style.color = ''; }, 1500);
+    });
+  }
+
+  // FAQ accordion
+  function toggleFaq(item) {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Auto-detect platform on load
+  window.addEventListener('DOMContentLoaded', () => {
+    if (typeof detectPlatform === 'function') {
+      const p = detectPlatform();
+      if (['windows','linux','mac'].includes(p)) switchPlatform(p);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShadowForge OS — The AI that builds, deploys, and dominates. Turn any idea into a production app.">
+  <meta name="theme-color" content="#03000a">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ShadowForge OS | The Dark Intelligence">
+  <meta property="og:description" content="Prompt to production. AI-powered. Horror-tech aesthetic.">
+  <meta property="og:type" content="website">
+
+  <title>ShadowForge OS | The Dark Intelligence</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Styles (order matters) -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       BACKGROUND ENVIRONMENT (fixed, always visible)
+       ══════════════════════════════════════════════════════ -->
+  <div class="bg-env" aria-hidden="true">
+    <div class="bg-env__heartbeat" id="heartbeat"></div>
+    <div class="bg-env__fog-1"></div>
+    <div class="bg-env__fog-2"></div>
+    <div class="bg-env__vignette"></div>
+    <div class="bg-env__scanlines"></div>
+    <div class="bg-env__noise"></div>
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVBAR
+       ══════════════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+
+      <!-- Logo -->
+      <a href="#hero" class="navbar__logo" aria-label="ShadowForge Home">
+        <svg class="navbar__logo-svg" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="22,3 41,40 3,40" fill="none" stroke="#ff0015" stroke-width="1.5" stroke-linejoin="round"/>
+          <polygon points="22,10 35,36 9,36" fill="none" stroke="#6600cc" stroke-width="1" stroke-linejoin="round" opacity="0.6"/>
+          <line x1="22" y1="12" x2="22" y2="26" stroke="#ff0015" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="22" cy="31" r="3" fill="#ff0015" opacity="0.9"/>
+          <circle cx="22" cy="22" r="14" fill="none" stroke="rgba(102,0,204,0.2)" stroke-width="0.5"/>
+        </svg>
+        <div class="navbar__logo-wordmark">
+          <span class="navbar__logo-name">Shadow<span>Forge</span></span>
+          <span class="navbar__logo-tagline">[ OS v2.5 ]</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="navbar__links" role="list">
+        <li><a href="#features"    class="navbar__link">Features</a></li>
+        <li><a href="#protocol"    class="navbar__link">Protocol</a></li>
+        <li><a href="#providers"   class="navbar__link">Providers</a></li>
+        <li><a href="#demo"        class="navbar__link">Demo</a></li>
+        <li><a href="#security"    class="navbar__link">Security</a></li>
+        <li><a href="#install"     class="navbar__link">Install</a></li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="navbar__actions">
+        <div class="navbar__status" aria-label="System status">
+          <span class="navbar__status-dot" aria-hidden="true"></span>
+          <span class="navbar__status-text">ALL SYSTEMS ONLINE</span>
+        </div>
+        <a href="install.html" class="btn btn-primary btn--sm">
+          Initialize →
+        </a>
+      </div>
+
+      <!-- Mobile Burger -->
+      <button
+        class="navbar__burger"
+        id="burger-btn"
+        aria-label="Toggle mobile menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu">
+        <span class="navbar__burger-line" aria-hidden="true"></span>
+        <span class="navbar__burger-line" aria-hidden="true"></span>
+        <span class="navbar__burger-line" aria-hidden="true"></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <ul class="mobile-menu__nav" role="list">
+      <li><a href="#features"  class="mobile-menu__link">Features</a></li>
+      <li><a href="#protocol"  class="mobile-menu__link">Protocol</a></li>
+      <li><a href="#providers" class="mobile-menu__link">Providers</a></li>
+      <li><a href="#demo"      class="mobile-menu__link">Demo</a></li>
+      <li><a href="#security"  class="mobile-menu__link">Security</a></li>
+      <div class="mobile-menu__divider" aria-hidden="true"></div>
+      <li>
+        <a href="install.html" class="btn btn-primary btn--lg">
+          Initialize System →
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       HERO SECTION
+       ══════════════════════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-label="Hero">
+
+    <!-- Eyebrow badge -->
+    <div class="hero__eyebrow" role="status">
+      <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+      SYSTEM v2.5.0 — KERNEL ACTIVE — BUILD ENGINE ONLINE
+    </div>
+
+    <!-- Main title -->
+    <h1 class="hero__title">
+      <span class="hero__title-line">The AI That</span>
+      <span class="hero__title-line">
+        <span class="hero__title-accent">Builds</span> Your
+      </span>
+      <span class="hero__title-line hero__title-ghost">Digital Empire</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="hero__subtitle">
+      ShadowForge converts raw ideas into production-ready applications.
+      Voice commands. Auto-build. Multi-platform deploy.
+      <strong>Dark. Powerful. Unstoppable.</strong>
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="hero__actions">
+      <a href="install.html" class="btn btn-primary btn--lg border-glow" id="hero-cta">
+        ⬛ Begin Forge
+      </a>
+      <a href="#demo" class="btn btn-ghost btn--lg">
+        ▶ Watch Demo
+      </a>
+    </div>
+
+    <!-- Stats -->
+    <div class="hero__stats" aria-label="Platform statistics">
+      <div class="hero__stat">
+        <div class="hero__stat-value">
+          <span class="hero__stat-num" data-target="12847">0</span>
+        </div>
+        <span class="hero__stat-label">Projects Forged</span>
+      </div>
+      <div class="hero__stat-divider" aria-hidden="true"></div>
+      <div class="hero__stat">
+        <div class="hero__stat-value">
+          <span class="hero__stat-num" data-target="98">0</span>
+          <span class="hero__stat-suffix">%</span>
+        </div>
+        <span class="hero__stat-label">Deploy Success</span>
+      </div>
+      <div class="hero__stat-divider" aria-hidden="true"></div>
+      <div class="hero__stat">
+        <div class="hero__stat-value">
+          <span class="hero__stat-num" data-target="8">0</span>
+          <span class="hero__stat-suffix">+</span>
+        </div>
+        <span class="hero__stat-label">Free AI Providers</span>
+      </div>
+      <div class="hero__stat-divider" aria-hidden="true"></div>
+      <div class="hero__stat">
+        <div class="hero__stat-value">
+          <span class="hero__stat-num" data-target="5">0</span>
+        </div>
+        <span class="hero__stat-label">Platforms Supported</span>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="hero__scroll-text">SCROLL TO INITIALIZE KERNEL</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       BREACH ZONE (Scary horror animation on scroll)
+       ══════════════════════════════════════════════════════ -->
+  <section class="breach-wrapper" aria-hidden="true">
+    <div class="breach-zone" id="breach-trigger">
+      <div class="breach-alert-tag">
+        // SECURITY OVERRIDE DETECTED //
+      </div>
+      <p class="breach-horror-text">
+        AI Access<br>To Your Device!
+      </p>
+      <p class="breach-error-code">
+        ERR_KERNEL_BREACH :: 0x4F56_SHADOW_CORE :: ACCESS_GRANTED
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       FEATURES SECTION
+       ══════════════════════════════════════════════════════ -->
+  <section class="section features-section" id="features" aria-labelledby="features-title">
+    <div class="section__container">
+
+      <div class="section__header">
+        <span class="section__tag">[ CORE MODULES ]</span>
+        <h2 class="section__title" id="features-title">
+          What ShadowForge <span class="accent-red">Unleashes</span>
+        </h2>
+        <p class="section__subtitle">
+          Every tool you need. No compromises. Built for builders who think differently.
+        </p>
+      </div>
+
+      <div class="features__grid">
+
+        <div class="feature-card" data-reveal>
+          <div class="feature-card__icon-wrap" aria-hidden="true">⚡</div>
+          <h3 class="feature-card__title">Prompt → Project</h3>
+          <p class="feature-card__text">
+            Describe your idea in plain language. ShadowForge generates a complete,
+            production-ready codebase — structure, components, routes, tests — instantly.
+          </p>
+        </div>
+
+        <div class="feature-card feature-card--red" data-reveal>
+          <div class="feature-card__icon-wrap" aria-hidden="true">🔥</div>
+          <h3 class="feature-card__title">AI Code Engine</h3>
+          <p class="feature-card__text">
+            Senior-level code generation using the strongest available free AI models.
+            Auto-switches between providers. Always picks the best.
+          </p>
+        </div>
+
+        <div class="feature-card" data-reveal>
+          <div class="feature-card__icon-wrap" aria-hidden="true">🎙️</div>
+          <h3 class="feature-card__title">Voice First</h3>
+          <p class="feature-card__text">
+            "Create a SaaS app with auth." That's it. Voice commands trigger full
+            build pipelines. Hands-free development is real.
+          </p>
+        </div>
+
+        <div class="feature-card feature-card--red" data-reveal>
+          <div class="feature-card__icon-wrap" aria-hidden="true">📦</div>
+          <h3 class="feature-card__title">ZIP & Analyze</h3>
+          <p class="feature-card__text">
+            Drop any ZIP. Get a full project analysis, bug detection,
+            enhancement suggestions, and one-click re-deploy.
+          </p>
+        </div>
+
+        <div class="feature-card" data-reveal>
+          <div class="feature-card__icon-wrap" aria-hidden="true">🤖</div>
+          <h3 class="feature-card__title">Sudo Mode</h3>
+          <p class="feature-card__text">
+            Prefix any command with <code>sudo</code> to unlock unrestricted AI execution.
+            The AI follows your intent, not filtered interpretations.
+          </p>
+        </div>
+
+        <div class="feature-card feature-card--red" data-reveal>
+          <div class="feature-card__icon-wrap" aria-hidden="true">🚀</div>
+          <h3 class="feature-card__title">Multi-Platform Build</h3>
+          <p class="feature-card__text">
+            Windows EXE. macOS DMG. Linux AppImage. Android APK.
+            All built automatically via GitHub Actions on every release.
+          </p>
+        </div>
+
+        <div class="feature-card" data-reveal>
+          <div class="feature-card__icon-wrap" aria-hidden="true">🛡️</div>
+          <h3 class="feature-card__title">Sandboxed Agent</h3>
+          <p class="feature-card__text">
+            The AI agent operates in a strict sandbox — no system file access,
+            no network outside approved domains, full audit log.
+          </p>
+        </div>
+
+        <div class="feature-card feature-card--red" data-reveal>
+          <div class="feature-card__icon-wrap" aria-hidden="true">🔗</div>
+          <h3 class="feature-card__title">Auto GitHub Push</h3>
+          <p class="feature-card__text">
+            Generates repo, commits organized code, creates releases, triggers
+            CI/CD pipelines — all from a single command.
+          </p>
+        </div>
+
+        <div class="feature-card" data-reveal>
+          <div class="feature-card__icon-wrap" aria-hidden="true">🌐</div>
+          <h3 class="feature-card__title">Arena.ai Integration</h3>
+          <p class="feature-card__text">
+            Browser automation grabs the best AI responses from arena.ai,
+            converts them into structured project files automatically.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       PROTOCOL SECTION
+       ══════════════════════════════════════════════════════ -->
+  <section class="section protocol-section" id="protocol" aria-labelledby="protocol-title">
+    <div class="section__container">
+
+      <div class="section__header">
+        <span class="section__tag">[ FORGE SEQUENCE ]</span>
+        <h2 class="section__title" id="protocol-title">
+          The <span class="accent-purple">Protocol</span> Sequence
+        </h2>
+        <p class="section__subtitle">From raw idea to deployed product. No shortcuts skipped.</p>
+      </div>
+
+      <div class="protocol__layout">
+
+        <!-- Steps -->
+        <div class="protocol__steps" role="list">
+
+          <div class="protocol__step" data-step="01" role="listitem">
+            <div class="protocol__step-num" aria-label="Step 1">01</div>
+            <div class="protocol__step-body">
+              <h3>Input Your Vision</h3>
+              <p>Type, speak, or drop files. ShadowForge reads your intent from any format.</p>
+            </div>
+          </div>
+
+          <div class="protocol__step" data-step="02" role="listitem">
+            <div class="protocol__step-num" aria-label="Step 2">02</div>
+            <div class="protocol__step-body">
+              <h3>Smart Q&A Engine</h3>
+              <p>The system asks only what matters — style, platform, features, assets — no bloat.</p>
+            </div>
+          </div>
+
+          <div class="protocol__step" data-step="03" role="listitem">
+            <div class="protocol__step-num" aria-label="Step 3">03</div>
+            <div class="protocol__step-body">
+              <h3>AI Architecture</h3>
+              <p>Maps your requirements into a complete project blueprint — folders, routes, components.</p>
+            </div>
+          </div>
+
+          <div class="protocol__step" data-step="04" role="listitem">
+            <div class="protocol__step-num" aria-label="Step 4">04</div>
+            <div class="protocol__step-body">
+              <h3>Code Generation</h3>
+              <p>Production-grade code written across all files. Auto-imports. Sane defaults.</p>
+            </div>
+          </div>
+
+          <div class="protocol__step" data-step="05" role="listitem">
+            <div class="protocol__step-num" aria-label="Step 5">05</div>
+            <div class="protocol__step-body">
+              <h3>Test & Validate</h3>
+              <p>Broken imports, missing dependencies, config errors — caught and fixed automatically.</p>
+            </div>
+          </div>
+
+          <div class="protocol__step" data-step="06" role="listitem">
+            <div class="protocol__step-num" aria-label="Step 6">06</div>
+            <div class="protocol__step-body">
+              <h3>GitHub → Deploy</h3>
+              <p>Push to GitHub. GitHub Actions builds for all platforms. Deploy to Render in one click.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Side code visual -->
+        <div class="protocol__visual" aria-hidden="true">
+          <div class="protocol__code-block">
+            <div class="code-block__bar">
+              <div class="code-block__dot code-block__dot--r"></div>
+              <div class="code-block__dot code-block__dot--y"></div>
+              <div class="code-block__dot code-block__dot--g"></div>
+              <span class="code-block__title">shadowforge — build.log</span>
+            </div>
+            <div class="code-block__body" id="protocol-log">
+              <div class="code-block__line">
+                <span class="code-line--prompt">forge@shadow:~$</span>
+                <span class="code-line--cmd"> init "my-empire"</span>
+              </div>
+              <div class="code-block__line">
+                <span class="code-line--info">  ◈ Reading project intent...</span>
+              </div>
+              <div class="code-block__line">
+                <span class="code-line--info">  ◈ Selecting optimal AI model...</span>
+              </div>
+              <div class="code-block__line">
+                <span class="code-line--ok">  ✓ Blueprint generated (48 files)</span>
+              </div>
+              <div class="code-block__line">
+                <span class="code-line--ok">  ✓ Components written</span>
+              </div>
+              <div class="code-block__line">
+                <span class="code-line--ok">  ✓ API routes scaffolded</span>
+              </div>
+              <div class="code-block__line">
+                <span class="code-line--ok">  ✓ Tests generated</span>
+              </div>
+              <div class="code-block__line">
+                <span class="code-line--warn">  ⚡ GitHub push triggered</span>
+              </div>
+              <div class="code-block__line">
+                <span class="code-line--ok">  ✓ Build: windows ✓ macos ✓ linux ✓</span>
+              </div>
+              <div class="code-block__line">
+                <span class="code-line--ok">  ✓ APK: android ✓</span>
+              </div>
+              <div class="code-block__line">
+                <span class="code-line--warn">  ⚡ LIVE: https://my-empire.onrender.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       AI PROVIDERS SECTION
+       ══════════════════════════════════════════════════════ -->
+  <section class="section providers-section" id="providers" aria-labelledby="providers-title">
+    <div class="section__container">
+
+      <div class="section__header">
+        <span class="section__tag">[ AI ARSENAL ]</span>
+        <h2 class="section__title" id="providers-title">
+          8+ Free AI <span class="accent-red">Providers</span>
+        </h2>
+        <p class="section__subtitle">
+          Auto-selects the strongest available model. Falls back intelligently. Never goes offline.
+        </p>
+      </div>
+
+      <div class="providers__grid" role="list">
+        <div class="provider-chip" role="listitem">
+          <span class="provider-chip__dot"></span>
+          OpenRouter
+          <span class="badge badge--green" style="font-size:0.6rem;padding:1px 5px;">FREE</span>
+        </div>
+        <div class="provider-chip" role="listitem">
+          <span class="provider-chip__dot"></span>
+          Groq (LLaMA 3.3)
+          <span class="badge badge--green" style="font-size:0.6rem;padding:1px 5px;">FREE</span>
+        </div>
+        <div class="provider-chip" role="listitem">
+          <span class="provider-chip__dot"></span>
+          Together AI
+          <span class="badge badge--green" style="font-size:0.6rem;padding:1px 5px;">FREE</span>
+        </div>
+        <div class="provider-chip" role="listitem">
+          <span class="provider-chip__dot"></span>
+          Mistral AI
+          <span class="badge badge--green" style="font-size:0.6rem;padding:1px 5px;">FREE</span>
+        </div>
+        <div class="provider-chip" role="listitem">
+          <span class="provider-chip__dot"></span>
+          Cohere
+          <span class="badge badge--green" style="font-size:0.6rem;padding:1px 5px;">FREE</span>
+        </div>
+        <div class="provider-chip" role="listitem">
+          <span class="provider-chip__dot"></span>
+          HuggingFace
+          <span class="badge badge--green" style="font-size:0.6rem;padding:1px 5px;">FREE</span>
+        </div>
+        <div class="provider-chip" role="listitem">
+          <span class="provider-chip__dot"></span>
+          Google AI Studio
+          <span class="badge badge--green" style="font-size:0.6rem;padding:1px 5px;">FREE</span>
+        </div>
+        <div class="provider-chip" role="listitem">
+          <span class="provider-chip__dot"></span>
+          Arena.ai
+          <span class="badge badge--purple" style="font-size:0.6rem;padding:1px 5px;">AUTO</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       DEMO / TERMINAL SECTION
+       ══════════════════════════════════════════════════════ -->
+  <section class="section demo-section" id="demo" aria-labelledby="demo-title">
+    <div class="section__container">
+
+      <div class="section__header">
+        <span class="section__tag">[ LIVE TERMINAL ]</span>
+        <h2 class="section__title" id="demo-title">
+          Watch The <span class="accent-red">Darkness</span> Build
+        </h2>
+      </div>
+
+      <div class="demo__terminal" role="region" aria-label="Live terminal demo">
+        <div class="demo__terminal-bar" aria-hidden="true">
+          <span class="terminal-dot terminal-dot--red"></span>
+          <span class="terminal-dot terminal-dot--yellow"></span>
+          <span class="terminal-dot terminal-dot--green"></span>
+          <span class="demo__terminal-label">shadowforge — kernel@forge:~</span>
+        </div>
+        <div class="demo__terminal-body">
+          <div class="terminal-input-line">
+            <span class="terminal-prompt">forge@shadow:~$</span>
+            <span class="terminal-cmd" id="terminal-typed-cmd" aria-live="polite"></span>
+            <span class="terminal-cursor" aria-hidden="true">█</span>
+          </div>
+          <div class="terminal-output-area" id="terminal-output" aria-live="polite"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECURITY SECTION
+       ══════════════════════════════════════════════════════ -->
+  <section class="section security-section" id="security" aria-labelledby="security-title">
+    <div class="section__container">
+      <div class="security__grid">
+
+        <div class="security__content">
+          <span class="section__tag">[ ZERO BREACH POLICY ]</span>
+          <h2 class="section__title" id="security-title">
+            Built For The<br><span class="accent-red">Paranoid</span>
+          </h2>
+          <p class="security__desc">
+            ShadowForge operates under strict sandbox rules. The AI agent
+            cannot touch system files, cannot leak credentials, and cannot
+            access anything outside your project directory.
+          </p>
+          <ul class="security__list" role="list">
+            <li class="security__list-item">
+              <span class="security__check" aria-hidden="true">✓</span>
+              <span class="security__list-text">API keys in .env only — never in source code</span>
+            </li>
+            <li class="security__list-item">
+              <span class="security__check" aria-hidden="true">✓</span>
+              <span class="security__list-text">Agent sandboxed to project directory only</span>
+            </li>
+            <li class="security__list-item">
+              <span class="security__check" aria-hidden="true">✓</span>
+              <span class="security__list-text">No system file access — ever</span>
+            </li>
+            <li class="security__list-item">
+              <span class="security__check" aria-hidden="true">✓</span>
+              <span class="security__list-text">Auto library installer with safe approval</span>
+            </li>
+            <li class="security__list-item">
+              <span class="security__check" aria-hidden="true">✓</span>
+              <span class="security__list-text">Full audit log of every AI action taken</span>
+            </li>
+            <li class="security__list-item">
+              <span class="security__check" aria-hidden="true">✓</span>
+              <span class="security__list-text">.env.example only in GitHub — real secrets stay local</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="security__visual" aria-hidden="true">
+          <div class="shield-container">
+            <div class="shield-ring shield-ring--1"></div>
+            <div class="shield-ring shield-ring--2"></div>
+            <div class="shield-ring shield-ring--3"></div>
+            <div class="shield-core" role="img" aria-label="Security shield">🛡️</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       INSTALL / CTA SECTION
+       ══════════════════════════════════════════════════════ -->
+  <section class="section install-section" id="install" aria-labelledby="install-title">
+    <div class="section__container">
+      <div class="install__content">
+
+        <span class="section__tag">[ INITIALIZE SEQUENCE ]</span>
+        <h2 class="install__title" id="install-title">
+          Ready To <span class="accent-red">Forge</span><br>Your Empire?
+        </h2>
+        <p class="install__subtitle">No credit card. No bullshit. Just raw AI power.</p>
+
+        <!-- Animated install steps -->
+        <div class="install__steps" id="install-steps-preview" aria-label="Installation steps preview">
+          <div class="install__step" data-step-name="checking">
+            <span class="install__step-icon" aria-hidden="true">◈</span>
+            <span>Checking System Requirements</span>
+          </div>
+          <div class="install__step" data-step-name="verifying">
+            <span class="install__step-icon" aria-hidden="true">◈</span>
+            <span>Verifying Identity</span>
+          </div>
+          <div class="install__step" data-step-name="preparing">
+            <span class="install__step-icon" aria-hidden="true">◈</span>
+            <span>Preparing Forge Environment</span>
+          </div>
+          <div class="install__step" data-step-name="installing">
+            <span class="install__step-icon" aria-hidden="true">◈</span>
+            <span>Installing Core Modules</span>
+          </div>
+          <div class="install__step" data-step-name="finalizing">
+            <span class="install__step-icon" aria-hidden="true">◈</span>
+            <span>Finalizing Configuration</span>
+          </div>
+          <div class="install__step install__step--ready" data-step-name="ready">
+            <span class="install__step-icon" aria-hidden="true">✓</span>
+            <span>SYSTEM READY</span>
+          </div>
+        </div>
+
+        <div class="install__cta-wrap">
+          <a href="install.html" class="btn btn-primary btn--xl border-glow" id="main-cta-btn">
+            ⬛ INITIALIZE SHADOWFORGE
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__main">
+
+      <div class="footer__brand">
+        <svg width="40" height="40" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <polygon points="22,3 41,40 3,40" fill="none" stroke="#ff0015" stroke-width="1.5"/>
+          <circle cx="22" cy="31" r="3" fill="#ff0015" opacity="0.9"/>
+          <line x1="22" y1="12" x2="22" y2="26" stroke="#ff0015" stroke-width="1.5"/>
+        </svg>
+        <p class="footer__brand-name">Shadow<span>Forge</span> OS</p>
+        <p class="footer__brand-desc">
+          The dark side of AI development. Build, deploy, and dominate — with zero compromises.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="footer__col-title">Product</h4>
+        <nav class="footer__links" aria-label="Product links">
+          <a href="#features"  class="footer__link">Features</a>
+          <a href="#protocol"  class="footer__link">Protocol</a>
+          <a href="#providers" class="footer__link">AI Providers</a>
+          <a href="#demo"      class="footer__link">Live Demo</a>
+        </nav>
+      </div>
+
+      <div>
+        <h4 class="footer__col-title">Deploy</h4>
+        <nav class="footer__links" aria-label="Deploy links">
+          <a href="#" class="footer__link">GitHub</a>
+          <a href="#" class="footer__link">Render</a>
+          <a href="#" class="footer__link">Vercel</a>
+          <a href="#" class="footer__link">Railway</a>
+        </nav>
+      </div>
+
+      <div>
+        <h4 class="footer__col-title">Docs</h4>
+        <nav class="footer__links" aria-label="Documentation links">
+          <a href="#" class="footer__link">Quickstart</a>
+          <a href="#" class="footer__link">API Keys</a>
+          <a href="#" class="footer__link">Sandbox Rules</a>
+          <a href="#" class="footer__link">Templates</a>
+        </nav>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <span class="footer__copyright">
+        © 2025 ShadowForge OS. All rights reserved. All systems operational.
+      </span>
+      <div class="footer__sys-status" role="status" aria-label="System status">
+        <span class="navbar__status-dot" aria-hidden="true"></span>
+        KERNEL ONLINE
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Scripts -->
+  <script src="js/particles.js" defer></script>
+  <script src="js/navbar.js" defer></script>
+  <script src="js/scroll-effects.js" defer></script>
+  <script src="js/hero-effects.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

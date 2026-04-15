@@ -1,0 +1,262 @@
+{
+  "_comment": "ShadowForge OS — AI Provider Configurations. Do NOT put API keys here.",
+  "version": "2.5.0",
+
+  "providers": {
+
+    "groq": {
+      "name": "Groq",
+      "display_name": "Groq (Ultra-Fast)",
+      "base_url": "https://api.groq.com/openai/v1",
+      "env_key": "GROQ_API_KEY",
+      "enabled": true,
+      "free_tier": true,
+      "priority": 1,
+      "max_tokens": 8192,
+      "supports_streaming": true,
+      "models": [
+        {
+          "id": "llama-3.3-70b-versatile",
+          "display": "Llama 3.3 70B",
+          "context_window": 131072,
+          "recommended": true
+        },
+        {
+          "id": "llama-3.1-8b-instant",
+          "display": "Llama 3.1 8B (Fast)",
+          "context_window": 131072,
+          "recommended": false
+        },
+        {
+          "id": "mixtral-8x7b-32768",
+          "display": "Mixtral 8x7B",
+          "context_window": 32768,
+          "recommended": false
+        },
+        {
+          "id": "gemma2-9b-it",
+          "display": "Gemma 2 9B",
+          "context_window": 8192,
+          "recommended": false
+        }
+      ],
+      "default_model": "llama-3.3-70b-versatile"
+    },
+
+    "openrouter": {
+      "name": "OpenRouter",
+      "display_name": "OpenRouter (100+ Models)",
+      "base_url": "https://openrouter.ai/api/v1",
+      "env_key": "OPENROUTER_API_KEY",
+      "enabled": true,
+      "free_tier": true,
+      "priority": 2,
+      "max_tokens": 4096,
+      "supports_streaming": true,
+      "extra_headers": {
+        "HTTP-Referer": "https://github.com/shadowforge-os",
+        "X-Title": "ShadowForge OS"
+      },
+      "models": [
+        {
+          "id": "meta-llama/llama-3.3-70b-instruct:free",
+          "display": "Llama 3.3 70B (Free)",
+          "context_window": 131072,
+          "recommended": true
+        },
+        {
+          "id": "mistralai/mistral-7b-instruct:free",
+          "display": "Mistral 7B (Free)",
+          "context_window": 32768,
+          "recommended": false
+        },
+        {
+          "id": "microsoft/phi-3-mini-128k-instruct:free",
+          "display": "Phi-3 Mini (Free)",
+          "context_window": 128000,
+          "recommended": false
+        },
+        {
+          "id": "google/gemma-2-9b-it:free",
+          "display": "Gemma 2 9B (Free)",
+          "context_window": 8192,
+          "recommended": false
+        }
+      ],
+      "default_model": "meta-llama/llama-3.3-70b-instruct:free"
+    },
+
+    "together": {
+      "name": "Together",
+      "display_name": "Together AI",
+      "base_url": "https://api.together.xyz/v1",
+      "env_key": "TOGETHER_API_KEY",
+      "enabled": true,
+      "free_tier": true,
+      "priority": 3,
+      "max_tokens": 4096,
+      "supports_streaming": true,
+      "models": [
+        {
+          "id": "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
+          "display": "Llama 3.3 70B Turbo (Free)",
+          "context_window": 131072,
+          "recommended": true
+        },
+        {
+          "id": "meta-llama/Llama-Vision-Free",
+          "display": "Llama Vision (Free)",
+          "context_window": 131072,
+          "recommended": false
+        }
+      ],
+      "default_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
+    },
+
+    "mistral": {
+      "name": "Mistral",
+      "display_name": "Mistral AI",
+      "base_url": "https://api.mistral.ai/v1",
+      "env_key": "MISTRAL_API_KEY",
+      "enabled": true,
+      "free_tier": false,
+      "priority": 4,
+      "max_tokens": 8192,
+      "supports_streaming": true,
+      "models": [
+        {
+          "id": "mistral-small-latest",
+          "display": "Mistral Small",
+          "context_window": 32768,
+          "recommended": true
+        },
+        {
+          "id": "open-mistral-nemo",
+          "display": "Mistral Nemo (Free)",
+          "context_window": 128000,
+          "recommended": false
+        }
+      ],
+      "default_model": "mistral-small-latest"
+    },
+
+    "google": {
+      "name": "Google",
+      "display_name": "Google Gemini",
+      "base_url": "https://generativelanguage.googleapis.com/v1beta",
+      "env_key": "GOOGLE_AI_API_KEY",
+      "enabled": true,
+      "free_tier": true,
+      "priority": 5,
+      "max_tokens": 8192,
+      "supports_streaming": true,
+      "models": [
+        {
+          "id": "gemini-1.5-flash",
+          "display": "Gemini 1.5 Flash",
+          "context_window": 1000000,
+          "recommended": true
+        },
+        {
+          "id": "gemini-1.5-flash-8b",
+          "display": "Gemini 1.5 Flash 8B",
+          "context_window": 1000000,
+          "recommended": false
+        }
+      ],
+      "default_model": "gemini-1.5-flash"
+    },
+
+    "cohere": {
+      "name": "Cohere",
+      "display_name": "Cohere",
+      "base_url": "https://api.cohere.ai/v1",
+      "env_key": "COHERE_API_KEY",
+      "enabled": true,
+      "free_tier": false,
+      "priority": 6,
+      "max_tokens": 4096,
+      "supports_streaming": true,
+      "models": [
+        {
+          "id": "command-r",
+          "display": "Command R",
+          "context_window": 128000,
+          "recommended": true
+        },
+        {
+          "id": "command-light",
+          "display": "Command Light",
+          "context_window": 4096,
+          "recommended": false
+        }
+      ],
+      "default_model": "command-r"
+    },
+
+    "huggingface": {
+      "name": "HuggingFace",
+      "display_name": "Hugging Face",
+      "base_url": "https://api-inference.huggingface.co/models",
+      "env_key": "HUGGINGFACE_API_KEY",
+      "enabled": true,
+      "free_tier": true,
+      "priority": 7,
+      "max_tokens": 2048,
+      "supports_streaming": false,
+      "models": [
+        {
+          "id": "mistralai/Mistral-7B-Instruct-v0.3",
+          "display": "Mistral 7B Instruct",
+          "context_window": 32768,
+          "recommended": true
+        },
+        {
+          "id": "HuggingFaceH4/zephyr-7b-beta",
+          "display": "Zephyr 7B Beta",
+          "context_window": 32768,
+          "recommended": false
+        }
+      ],
+      "default_model": "mistralai/Mistral-7B-Instruct-v0.3"
+    },
+
+    "arena": {
+      "name": "Arena",
+      "display_name": "LM Arena (Browser)",
+      "base_url": "https://lmarena.ai",
+      "env_key": null,
+      "enabled": true,
+      "free_tier": true,
+      "priority": 8,
+      "max_tokens": 2048,
+      "supports_streaming": false,
+      "requires_browser": true,
+      "models": [
+        {
+          "id": "arena-auto",
+          "display": "Arena Auto",
+          "context_window": 4096,
+          "recommended": true
+        }
+      ],
+      "default_model": "arena-auto"
+    }
+  },
+
+  "fallback_strategy": {
+    "enabled": true,
+    "max_attempts": 3,
+    "retry_delay_seconds": 1.5,
+    "on_rate_limit": "switch_provider",
+    "on_timeout": "switch_provider",
+    "on_auth_error": "skip_provider"
+  },
+
+  "ui": {
+    "show_provider_badge": true,
+    "show_model_selector": true,
+    "show_token_count": true,
+    "auto_detect_best": true
+  }
+}

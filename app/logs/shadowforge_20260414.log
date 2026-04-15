@@ -1,0 +1,327 @@
+{"ts": "2026-04-14T20:21:08.489583", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 309, "msg": "Logger initialized — file: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app\\logs\\shadowforge_20260414.log"}
+{"ts": "2026-04-14T20:21:08.493511", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 310, "msg": "Console level: DEBUG"}
+{"ts": "2026-04-14T20:21:08.494286", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 311, "msg": "File level: DEBUG"}
+{"ts": "2026-04-14T20:21:08.495133", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 168, "msg": "=================================================="}
+{"ts": "2026-04-14T20:21:08.495951", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 169, "msg": " ShadowForge OS v2.5.0 — STARTING"}
+{"ts": "2026-04-14T20:21:08.496636", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 170, "msg": "=================================================="}
+{"ts": "2026-04-14T20:21:08.497289", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 171, "msg": "Python: 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]"}
+{"ts": "2026-04-14T20:21:08.498038", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 172, "msg": "Platform: win32"}
+{"ts": "2026-04-14T20:21:08.498563", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 173, "msg": "Root: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app"}
+{"ts": "2026-04-14T20:21:08.499742", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 181, "msg": "Checking dependencies..."}
+{"ts": "2026-04-14T20:21:08.548197", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "__init__", "line": 133, "msg": "AutoInstaller initialized. Platform: win32"}
+{"ts": "2026-04-14T20:21:08.548923", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "ensure_all", "line": 402, "msg": "Ensuring all required packages are installed..."}
+{"ts": "2026-04-14T20:21:08.549580", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 196, "msg": "Scanning 25 packages..."}
+{"ts": "2026-04-14T20:21:08.551864", "level": "WARNING", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  PyQt6                          ✗ MISSING"}
+{"ts": "2026-04-14T20:21:09.625098", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  requests                       ✓ 2.33.1"}
+{"ts": "2026-04-14T20:21:09.650085", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  python-dotenv                  ✓ 1.2.2"}
+{"ts": "2026-04-14T20:21:09.651549", "level": "WARNING", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  openai                         ✗ MISSING"}
+{"ts": "2026-04-14T20:21:09.653602", "level": "WARNING", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  groq                           ✗ MISSING"}
+{"ts": "2026-04-14T20:25:28.769948", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 309, "msg": "Logger initialized — file: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app\\logs\\shadowforge_20260414.log"}
+{"ts": "2026-04-14T20:25:28.771220", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 310, "msg": "Console level: DEBUG"}
+{"ts": "2026-04-14T20:25:28.771771", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 311, "msg": "File level: DEBUG"}
+{"ts": "2026-04-14T20:25:28.772261", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 168, "msg": "=================================================="}
+{"ts": "2026-04-14T20:25:28.772662", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 169, "msg": " ShadowForge OS v2.5.0 — STARTING"}
+{"ts": "2026-04-14T20:25:28.773100", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 170, "msg": "=================================================="}
+{"ts": "2026-04-14T20:25:28.773738", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 171, "msg": "Python: 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]"}
+{"ts": "2026-04-14T20:25:28.774213", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 172, "msg": "Platform: win32"}
+{"ts": "2026-04-14T20:25:28.774705", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 173, "msg": "Root: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app"}
+{"ts": "2026-04-14T20:25:28.775230", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 181, "msg": "Checking dependencies..."}
+{"ts": "2026-04-14T20:25:28.795716", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "__init__", "line": 133, "msg": "AutoInstaller initialized. Platform: win32"}
+{"ts": "2026-04-14T20:25:28.796379", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "ensure_all", "line": 402, "msg": "Ensuring all required packages are installed..."}
+{"ts": "2026-04-14T20:25:28.796854", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 196, "msg": "Scanning 25 packages..."}
+{"ts": "2026-04-14T20:25:28.798212", "level": "WARNING", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  PyQt6                          ✗ MISSING"}
+{"ts": "2026-04-14T20:25:29.512210", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  requests                       ✓ 2.33.1"}
+{"ts": "2026-04-14T20:25:29.541939", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  python-dotenv                  ✓ 1.2.2"}
+{"ts": "2026-04-14T20:25:29.544195", "level": "WARNING", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  openai                         ✗ MISSING"}
+{"ts": "2026-04-14T20:25:29.545853", "level": "WARNING", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  groq                           ✗ MISSING"}
+{"ts": "2026-04-14T20:42:49.331478", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 309, "msg": "Logger initialized — file: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app\\logs\\shadowforge_20260414.log"}
+{"ts": "2026-04-14T20:42:49.332587", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 310, "msg": "Console level: DEBUG"}
+{"ts": "2026-04-14T20:42:49.333119", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 311, "msg": "File level: DEBUG"}
+{"ts": "2026-04-14T20:42:49.333789", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 168, "msg": "=================================================="}
+{"ts": "2026-04-14T20:42:49.334409", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 169, "msg": " ShadowForge OS v2.5.0 — STARTING"}
+{"ts": "2026-04-14T20:42:49.335175", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 170, "msg": "=================================================="}
+{"ts": "2026-04-14T20:42:49.335910", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 171, "msg": "Python: 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]"}
+{"ts": "2026-04-14T20:42:49.337122", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 172, "msg": "Platform: win32"}
+{"ts": "2026-04-14T20:42:49.337881", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 173, "msg": "Root: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app"}
+{"ts": "2026-04-14T20:42:49.338673", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 181, "msg": "Checking dependencies..."}
+{"ts": "2026-04-14T20:42:49.362853", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "__init__", "line": 133, "msg": "AutoInstaller initialized. Platform: win32"}
+{"ts": "2026-04-14T20:42:49.363943", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "ensure_all", "line": 402, "msg": "Ensuring all required packages are installed..."}
+{"ts": "2026-04-14T20:42:49.364664", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 196, "msg": "Scanning 25 packages..."}
+{"ts": "2026-04-14T20:42:49.525256", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  PyQt6                          ✓ 6.11.0"}
+{"ts": "2026-04-14T20:42:50.194214", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  requests                       ✓ 2.33.1"}
+{"ts": "2026-04-14T20:42:50.224053", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  python-dotenv                  ✓ 1.2.2"}
+{"ts": "2026-04-14T20:42:54.063242", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  openai                         ✓ 2.31.0"}
+{"ts": "2026-04-14T20:42:54.259282", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  groq                           ✓ 1.1.2"}
+{"ts": "2026-04-14T20:42:54.321067", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  PyGithub                       ✓ 2.9.1"}
+{"ts": "2026-04-14T20:42:54.783655", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  gitpython                      ✓ 3.1.46"}
+{"ts": "2026-04-14T20:42:54.788700", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  pyinstaller                    ✓ 6.19.0"}
+{"ts": "2026-04-14T20:42:54.990798", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  speechrecognition              ✓ 3.16.0"}
+{"ts": "2026-04-14T20:42:55.005752", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  pyttsx3                        ✓ 2.99"}
+{"ts": "2026-04-14T20:42:55.009130", "level": "WARNING", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  pyaudio                        ✗ MISSING"}
+{"ts": "2026-04-14T20:42:55.018153", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  watchdog                       ✓ 6.0.0"}
+{"ts": "2026-04-14T20:42:55.023028", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  rich                           ✓ 15.0.0"}
+{"ts": "2026-04-14T20:42:55.027838", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  click                          ✓ 8.3.2"}
+{"ts": "2026-04-14T20:42:55.032344", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  httpx                          ✓ 0.28.1"}
+{"ts": "2026-04-14T20:42:56.675453", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  aiohttp                        ✓ 3.13.5"}
+{"ts": "2026-04-14T20:42:56.687996", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  websockets                     ✓ 16.0"}
+{"ts": "2026-04-14T20:42:56.698977", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  Pillow                         ✓ 12.2.0"}
+{"ts": "2026-04-14T20:42:56.809376", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  psutil                         ✓ 7.2.2"}
+{"ts": "2026-04-14T20:42:56.811895", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  playwright                     ✗ MISSING"}
+{"ts": "2026-04-14T20:42:56.814152", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  buildozer                      ✗ MISSING"}
+{"ts": "2026-04-14T20:42:56.816556", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  briefcase                      ✗ MISSING"}
+{"ts": "2026-04-14T20:42:56.818861", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  black                          ✗ MISSING"}
+{"ts": "2026-04-14T20:42:57.189073", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  pytest                         ✓ 9.0.3"}
+{"ts": "2026-04-14T20:42:57.192051", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 215, "msg": "  mypy                           ✗ MISSING"}
+{"ts": "2026-04-14T20:42:57.193118", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 220, "msg": "Scan complete: 19 installed, 1 missing required, 5 missing optional"}
+{"ts": "2026-04-14T20:48:00.326056", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 309, "msg": "Logger initialized — file: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app\\logs\\shadowforge_20260414.log"}
+{"ts": "2026-04-14T20:48:00.327810", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 310, "msg": "Console level: DEBUG"}
+{"ts": "2026-04-14T20:48:00.328778", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 311, "msg": "File level: DEBUG"}
+{"ts": "2026-04-14T20:48:00.329374", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 168, "msg": "=================================================="}
+{"ts": "2026-04-14T20:48:00.330100", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 169, "msg": " ShadowForge OS v2.5.0 — STARTING"}
+{"ts": "2026-04-14T20:48:00.330873", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 170, "msg": "=================================================="}
+{"ts": "2026-04-14T20:48:00.331615", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 171, "msg": "Python: 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]"}
+{"ts": "2026-04-14T20:48:00.332476", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 172, "msg": "Platform: win32"}
+{"ts": "2026-04-14T20:48:00.333540", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 173, "msg": "Root: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app"}
+{"ts": "2026-04-14T20:48:00.334162", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 181, "msg": "Checking dependencies..."}
+{"ts": "2026-04-14T20:48:00.383939", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "__init__", "line": 134, "msg": "AutoInstaller initialized. Platform: win32"}
+{"ts": "2026-04-14T20:48:00.384928", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "ensure_all", "line": 414, "msg": "Ensuring all required packages are installed..."}
+{"ts": "2026-04-14T20:48:00.385932", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 195, "msg": "Scanning 25 packages..."}
+{"ts": "2026-04-14T20:48:00.595318", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  PyQt6                          ✓ 6.11.0"}
+{"ts": "2026-04-14T20:48:01.293564", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  requests                       ✓ 2.33.1"}
+{"ts": "2026-04-14T20:48:01.328238", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  python-dotenv                  ✓ 1.2.2"}
+{"ts": "2026-04-14T20:48:05.532905", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  openai                         ✓ 2.31.0"}
+{"ts": "2026-04-14T20:48:05.785087", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  groq                           ✓ 1.1.2"}
+{"ts": "2026-04-14T20:48:05.823835", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  PyGithub                       ✓ 2.9.1"}
+{"ts": "2026-04-14T20:48:06.387739", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  gitpython                      ✓ 3.1.46"}
+{"ts": "2026-04-14T20:48:06.393704", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  pyinstaller                    ✓ 6.19.0"}
+{"ts": "2026-04-14T20:48:06.490580", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  speechrecognition              ✓ 3.16.0"}
+{"ts": "2026-04-14T20:48:06.505732", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  pyttsx3                        ✓ 2.99"}
+{"ts": "2026-04-14T20:48:06.508401", "level": "WARNING", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  pyaudio                        ✗ MISSING"}
+{"ts": "2026-04-14T20:48:06.517765", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  watchdog                       ✓ 6.0.0"}
+{"ts": "2026-04-14T20:48:06.522687", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  rich                           ✓ 15.0.0"}
+{"ts": "2026-04-14T20:48:06.526685", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  click                          ✓ 8.3.2"}
+{"ts": "2026-04-14T20:48:06.530327", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  httpx                          ✓ 0.28.1"}
+{"ts": "2026-04-14T20:48:07.841810", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  aiohttp                        ✓ 3.13.5"}
+{"ts": "2026-04-14T20:48:07.856949", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  websockets                     ✓ 16.0"}
+{"ts": "2026-04-14T20:48:07.868533", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  Pillow                         ✓ 12.2.0"}
+{"ts": "2026-04-14T20:48:07.913475", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  psutil                         ✓ 7.2.2"}
+{"ts": "2026-04-14T20:48:07.916950", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  playwright                     ✗ MISSING"}
+{"ts": "2026-04-14T20:48:07.919788", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  buildozer                      ✗ MISSING"}
+{"ts": "2026-04-14T20:48:07.922926", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  briefcase                      ✗ MISSING"}
+{"ts": "2026-04-14T20:48:07.925790", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  black                          ✗ MISSING"}
+{"ts": "2026-04-14T20:48:08.364182", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  pytest                         ✓ 9.0.3"}
+{"ts": "2026-04-14T20:48:08.367319", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  mypy                           ✗ MISSING"}
+{"ts": "2026-04-14T20:48:08.368291", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 230, "msg": "Scan complete: 19 installed, 1 missing required, 5 missing optional"}
+{"ts": "2026-04-14T20:48:08.369563", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "install_missing", "line": 364, "msg": "Installing 1 missing packages..."}
+{"ts": "2026-04-14T20:48:08.370531", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "install_one", "line": 277, "msg": "Installing: pyaudio"}
+{"ts": "2026-04-14T20:48:36.190669", "level": "ERROR", "module": "ShadowForge.Agent.AutoInstaller", "func": "install_one", "line": 319, "msg": "Install failed for pyaudio:      INFO:root:building 'pyaudio._portaudio' extension\n      error: Microsoft Visual C++ 14.0 or greater is required. Get it with \"Microsoft C++ Build Tools\": https://visualstudio.microsoft.com/visual-cpp-build-tools/\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\n  ERROR: Failed building wheel for pyaudio\nerror: failed-wheel-build-for-install\n\n× Failed to build installable wheels for some pyproject.toml based projects\n╰─> pyaudio\n"}
+{"ts": "2026-04-14T20:48:36.191795", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "install_missing", "line": 400, "msg": "Installation complete: 0 succeeded, 1 failed, 0 skipped"}
+{"ts": "2026-04-14T20:48:36.192339", "level": "ERROR", "module": "ShadowForge.Agent.AutoInstaller", "func": "ensure_all", "line": 427, "msg": "Failed to install: pyaudio"}
+{"ts": "2026-04-14T20:48:36.193044", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 185, "msg": "Loading configuration..."}
+{"ts": "2026-04-14T20:48:36.269018", "level": "INFO", "module": "ShadowForge.Config", "func": "load", "line": 67, "msg": "Loaded .env from: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app\\.env"}
+{"ts": "2026-04-14T20:48:36.270551", "level": "INFO", "module": "ShadowForge.Config", "func": "_validate", "line": 147, "msg": "Available AI providers: 7 keys found."}
+{"ts": "2026-04-14T20:48:36.271504", "level": "INFO", "module": "ShadowForge.Config", "func": "load", "line": 82, "msg": "Configuration loaded successfully."}
+{"ts": "2026-04-14T20:48:36.272339", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 189, "msg": "Launching application..."}
+{"ts": "2026-04-14T20:48:42.058105", "level": "INFO", "module": "ShadowForge.UI.SplashScreen", "func": "__init__", "line": 51, "msg": "SplashScreen displayed."}
+{"ts": "2026-04-14T20:48:43.420759", "level": "DEBUG", "module": "ShadowForge.UI.ModelSelector", "func": "_on_provider_change", "line": 310, "msg": "Provider selected: groq"}
+{"ts": "2026-04-14T20:48:43.584080", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "__init__", "line": 100, "msg": "Sandbox initialized. Workspace: C:\\Users\\user\\shadowforge_workspace"}
+{"ts": "2026-04-14T20:48:43.584688", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "__init__", "line": 101, "msg": "Forbidden paths: 14"}
+{"ts": "2026-04-14T20:48:43.585530", "level": "INFO", "module": "ShadowForge.Agent.SystemGuard", "func": "__init__", "line": 271, "msg": "SystemGuard initialized with 25 threat rules."}
+{"ts": "2026-04-14T20:48:43.586153", "level": "DEBUG", "module": "ShadowForge.Agent.PermissionManager", "func": "_load_from_file", "line": 175, "msg": "No permissions config at: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app\\config\\permissions.json"}
+{"ts": "2026-04-14T20:48:43.586678", "level": "INFO", "module": "ShadowForge.Agent.PermissionManager", "func": "__init__", "line": 160, "msg": "PermissionManager initialized. Rules: 18"}
+{"ts": "2026-04-14T20:48:43.587441", "level": "INFO", "module": "ShadowForge.Agent.PromptProcessor", "func": "__init__", "line": 149, "msg": "PromptProcessor initialized."}
+{"ts": "2026-04-14T20:48:43.588099", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "__init__", "line": 137, "msg": "AgentCore initialized."}
+{"ts": "2026-04-14T20:48:43.588597", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "__init__", "line": 138, "msg": "Workspace: C:\\Users\\user\\shadowforge_workspace"}
+{"ts": "2026-04-14T20:48:43.589133", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "__init__", "line": 139, "msg": "Sandbox mode: True"}
+{"ts": "2026-04-14T20:48:43.590050", "level": "INFO", "module": "ShadowForge.UI.MainWindow", "func": "_init_agent", "line": 256, "msg": "Agent initialized in UI."}
+{"ts": "2026-04-14T20:48:43.590783", "level": "INFO", "module": "ShadowForge.UI.MainWindow", "func": "__init__", "line": 102, "msg": "MainWindow initialized."}
+{"ts": "2026-04-14T20:49:00.128578", "level": "DEBUG", "module": "ShadowForge.UI.ModelSelector", "func": "_on_provider_change", "line": 310, "msg": "Provider selected: openrouter"}
+{"ts": "2026-04-14T20:49:33.455107", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 309, "msg": "Logger initialized — file: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app\\logs\\shadowforge_20260414.log"}
+{"ts": "2026-04-14T20:49:33.457098", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 310, "msg": "Console level: DEBUG"}
+{"ts": "2026-04-14T20:49:33.458186", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 311, "msg": "File level: DEBUG"}
+{"ts": "2026-04-14T20:49:33.459216", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 168, "msg": "=================================================="}
+{"ts": "2026-04-14T20:49:33.460232", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 169, "msg": " ShadowForge OS v2.5.0 — STARTING"}
+{"ts": "2026-04-14T20:49:33.461001", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 170, "msg": "=================================================="}
+{"ts": "2026-04-14T20:49:33.461655", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 171, "msg": "Python: 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]"}
+{"ts": "2026-04-14T20:49:33.462497", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 172, "msg": "Platform: win32"}
+{"ts": "2026-04-14T20:49:33.463086", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 173, "msg": "Root: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app"}
+{"ts": "2026-04-14T20:49:33.463833", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 181, "msg": "Checking dependencies..."}
+{"ts": "2026-04-14T20:49:33.487813", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "__init__", "line": 134, "msg": "AutoInstaller initialized. Platform: win32"}
+{"ts": "2026-04-14T20:49:33.488819", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "ensure_all", "line": 414, "msg": "Ensuring all required packages are installed..."}
+{"ts": "2026-04-14T20:49:33.489530", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 195, "msg": "Scanning 25 packages..."}
+{"ts": "2026-04-14T20:49:33.669292", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  PyQt6                          ✓ 6.11.0"}
+{"ts": "2026-04-14T20:49:34.263943", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  requests                       ✓ 2.33.1"}
+{"ts": "2026-04-14T20:49:34.297097", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  python-dotenv                  ✓ 1.2.2"}
+{"ts": "2026-04-14T20:49:38.491148", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  openai                         ✓ 2.31.0"}
+{"ts": "2026-04-14T20:49:38.752211", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  groq                           ✓ 1.1.2"}
+{"ts": "2026-04-14T20:49:38.790854", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  PyGithub                       ✓ 2.9.1"}
+{"ts": "2026-04-14T20:49:39.318348", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  gitpython                      ✓ 3.1.46"}
+{"ts": "2026-04-14T20:49:39.324077", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  pyinstaller                    ✓ 6.19.0"}
+{"ts": "2026-04-14T20:49:39.429039", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  speechrecognition              ✓ 3.16.0"}
+{"ts": "2026-04-14T20:49:39.446154", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  pyttsx3                        ✓ 2.99"}
+{"ts": "2026-04-14T20:49:39.449406", "level": "WARNING", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  pyaudio                        ✗ MISSING"}
+{"ts": "2026-04-14T20:49:39.460742", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  watchdog                       ✓ 6.0.0"}
+{"ts": "2026-04-14T20:49:39.467080", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  rich                           ✓ 15.0.0"}
+{"ts": "2026-04-14T20:49:39.471276", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  click                          ✓ 8.3.2"}
+{"ts": "2026-04-14T20:49:39.475754", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  httpx                          ✓ 0.28.1"}
+{"ts": "2026-04-14T20:49:40.684250", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  aiohttp                        ✓ 3.13.5"}
+{"ts": "2026-04-14T20:49:40.700749", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  websockets                     ✓ 16.0"}
+{"ts": "2026-04-14T20:49:40.710909", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  Pillow                         ✓ 12.2.0"}
+{"ts": "2026-04-14T20:49:40.760277", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  psutil                         ✓ 7.2.2"}
+{"ts": "2026-04-14T20:49:40.763321", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  playwright                     ✗ MISSING"}
+{"ts": "2026-04-14T20:49:40.766224", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  buildozer                      ✗ MISSING"}
+{"ts": "2026-04-14T20:49:40.768687", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  briefcase                      ✗ MISSING"}
+{"ts": "2026-04-14T20:49:40.771422", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  black                          ✗ MISSING"}
+{"ts": "2026-04-14T20:49:41.224565", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  pytest                         ✓ 9.0.3"}
+{"ts": "2026-04-14T20:49:41.227685", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  mypy                           ✗ MISSING"}
+{"ts": "2026-04-14T20:49:41.228940", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 230, "msg": "Scan complete: 19 installed, 1 missing required, 5 missing optional"}
+{"ts": "2026-04-14T20:49:41.230022", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "install_missing", "line": 364, "msg": "Installing 1 missing packages..."}
+{"ts": "2026-04-14T20:49:41.230944", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "install_one", "line": 277, "msg": "Installing: pyaudio"}
+{"ts": "2026-04-14T20:50:03.763868", "level": "ERROR", "module": "ShadowForge.Agent.AutoInstaller", "func": "install_one", "line": 319, "msg": "Install failed for pyaudio:      INFO:root:building 'pyaudio._portaudio' extension\n      error: Microsoft Visual C++ 14.0 or greater is required. Get it with \"Microsoft C++ Build Tools\": https://visualstudio.microsoft.com/visual-cpp-build-tools/\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\n  ERROR: Failed building wheel for pyaudio\nerror: failed-wheel-build-for-install\n\n× Failed to build installable wheels for some pyproject.toml based projects\n╰─> pyaudio\n"}
+{"ts": "2026-04-14T20:50:03.765236", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "install_missing", "line": 400, "msg": "Installation complete: 0 succeeded, 1 failed, 0 skipped"}
+{"ts": "2026-04-14T20:50:03.766141", "level": "ERROR", "module": "ShadowForge.Agent.AutoInstaller", "func": "ensure_all", "line": 427, "msg": "Failed to install: pyaudio"}
+{"ts": "2026-04-14T20:50:03.766969", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 185, "msg": "Loading configuration..."}
+{"ts": "2026-04-14T20:50:03.770549", "level": "INFO", "module": "ShadowForge.Config", "func": "load", "line": 67, "msg": "Loaded .env from: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app\\.env"}
+{"ts": "2026-04-14T20:50:03.771555", "level": "INFO", "module": "ShadowForge.Config", "func": "_validate", "line": 147, "msg": "Available AI providers: 7 keys found."}
+{"ts": "2026-04-14T20:50:03.772457", "level": "INFO", "module": "ShadowForge.Config", "func": "load", "line": 82, "msg": "Configuration loaded successfully."}
+{"ts": "2026-04-14T20:50:03.773284", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 189, "msg": "Launching application..."}
+{"ts": "2026-04-14T20:50:05.452258", "level": "INFO", "module": "ShadowForge.UI.SplashScreen", "func": "__init__", "line": 51, "msg": "SplashScreen displayed."}
+{"ts": "2026-04-14T20:50:06.782033", "level": "DEBUG", "module": "ShadowForge.UI.ModelSelector", "func": "_on_provider_change", "line": 310, "msg": "Provider selected: groq"}
+{"ts": "2026-04-14T20:50:06.855724", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "__init__", "line": 100, "msg": "Sandbox initialized. Workspace: C:\\Users\\user\\shadowforge_workspace"}
+{"ts": "2026-04-14T20:50:06.856822", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "__init__", "line": 101, "msg": "Forbidden paths: 14"}
+{"ts": "2026-04-14T20:50:06.857550", "level": "INFO", "module": "ShadowForge.Agent.SystemGuard", "func": "__init__", "line": 271, "msg": "SystemGuard initialized with 25 threat rules."}
+{"ts": "2026-04-14T20:50:06.859032", "level": "DEBUG", "module": "ShadowForge.Agent.PermissionManager", "func": "_load_from_file", "line": 175, "msg": "No permissions config at: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app\\config\\permissions.json"}
+{"ts": "2026-04-14T20:50:06.860297", "level": "INFO", "module": "ShadowForge.Agent.PermissionManager", "func": "__init__", "line": 160, "msg": "PermissionManager initialized. Rules: 18"}
+{"ts": "2026-04-14T20:50:06.861295", "level": "INFO", "module": "ShadowForge.Agent.PromptProcessor", "func": "__init__", "line": 149, "msg": "PromptProcessor initialized."}
+{"ts": "2026-04-14T20:50:06.862443", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "__init__", "line": 137, "msg": "AgentCore initialized."}
+{"ts": "2026-04-14T20:50:06.863513", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "__init__", "line": 138, "msg": "Workspace: C:\\Users\\user\\shadowforge_workspace"}
+{"ts": "2026-04-14T20:50:06.864402", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "__init__", "line": 139, "msg": "Sandbox mode: True"}
+{"ts": "2026-04-14T20:50:06.865663", "level": "INFO", "module": "ShadowForge.UI.MainWindow", "func": "_init_agent", "line": 256, "msg": "Agent initialized in UI."}
+{"ts": "2026-04-14T20:50:06.866632", "level": "INFO", "module": "ShadowForge.UI.MainWindow", "func": "__init__", "line": 102, "msg": "MainWindow initialized."}
+{"ts": "2026-04-14T20:50:20.123921", "level": "DEBUG", "module": "ShadowForge.UI.ModelSelector", "func": "_on_provider_change", "line": 310, "msg": "Provider selected: openrouter"}
+{"ts": "2026-04-14T20:55:20.212886", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 309, "msg": "Logger initialized — file: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app\\logs\\shadowforge_20260414.log"}
+{"ts": "2026-04-14T20:55:20.214377", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 310, "msg": "Console level: DEBUG"}
+{"ts": "2026-04-14T20:55:20.215161", "level": "INFO", "module": "ShadowForge", "func": "setup_logger", "line": 311, "msg": "File level: DEBUG"}
+{"ts": "2026-04-14T20:55:20.215821", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 168, "msg": "=================================================="}
+{"ts": "2026-04-14T20:55:20.216425", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 169, "msg": " ShadowForge OS v2.5.0 — STARTING"}
+{"ts": "2026-04-14T20:55:20.217237", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 170, "msg": "=================================================="}
+{"ts": "2026-04-14T20:55:20.217929", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 171, "msg": "Python: 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]"}
+{"ts": "2026-04-14T20:55:20.218564", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 172, "msg": "Platform: win32"}
+{"ts": "2026-04-14T20:55:20.219273", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 173, "msg": "Root: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app"}
+{"ts": "2026-04-14T20:55:20.220063", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 181, "msg": "Checking dependencies..."}
+{"ts": "2026-04-14T20:55:20.242395", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "__init__", "line": 134, "msg": "AutoInstaller initialized. Platform: win32"}
+{"ts": "2026-04-14T20:55:20.243041", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "ensure_all", "line": 414, "msg": "Ensuring all required packages are installed..."}
+{"ts": "2026-04-14T20:55:20.243534", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 195, "msg": "Scanning 25 packages..."}
+{"ts": "2026-04-14T20:55:20.414475", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  PyQt6                          ✓ 6.11.0"}
+{"ts": "2026-04-14T20:55:21.024865", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  requests                       ✓ 2.33.1"}
+{"ts": "2026-04-14T20:55:21.054100", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  python-dotenv                  ✓ 1.2.2"}
+{"ts": "2026-04-14T20:55:24.977075", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  openai                         ✓ 2.31.0"}
+{"ts": "2026-04-14T20:55:25.206671", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  groq                           ✓ 1.1.2"}
+{"ts": "2026-04-14T20:55:25.245645", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  PyGithub                       ✓ 2.9.1"}
+{"ts": "2026-04-14T20:55:25.801835", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  gitpython                      ✓ 3.1.46"}
+{"ts": "2026-04-14T20:55:25.807949", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  pyinstaller                    ✓ 6.19.0"}
+{"ts": "2026-04-14T20:55:25.917917", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  speechrecognition              ✓ 3.16.0"}
+{"ts": "2026-04-14T20:55:25.938470", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  pyttsx3                        ✓ 2.99"}
+{"ts": "2026-04-14T20:55:25.943598", "level": "WARNING", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  pyaudio                        ✗ MISSING"}
+{"ts": "2026-04-14T20:55:25.958320", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  watchdog                       ✓ 6.0.0"}
+{"ts": "2026-04-14T20:55:25.964805", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  rich                           ✓ 15.0.0"}
+{"ts": "2026-04-14T20:55:25.969567", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  click                          ✓ 8.3.2"}
+{"ts": "2026-04-14T20:55:25.973980", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  httpx                          ✓ 0.28.1"}
+{"ts": "2026-04-14T20:55:27.169194", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  aiohttp                        ✓ 3.13.5"}
+{"ts": "2026-04-14T20:55:27.183033", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  websockets                     ✓ 16.0"}
+{"ts": "2026-04-14T20:55:27.195535", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  Pillow                         ✓ 12.2.0"}
+{"ts": "2026-04-14T20:55:27.246315", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  psutil                         ✓ 7.2.2"}
+{"ts": "2026-04-14T20:55:27.250202", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  playwright                     ✗ MISSING"}
+{"ts": "2026-04-14T20:55:27.253268", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  buildozer                      ✗ MISSING"}
+{"ts": "2026-04-14T20:55:27.256422", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  briefcase                      ✗ MISSING"}
+{"ts": "2026-04-14T20:55:27.260099", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  black                          ✗ MISSING"}
+{"ts": "2026-04-14T20:55:27.657700", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  pytest                         ✓ 9.0.3"}
+{"ts": "2026-04-14T20:55:27.660115", "level": "DEBUG", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 221, "msg": "  mypy                           ✗ MISSING"}
+{"ts": "2026-04-14T20:55:27.660855", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "scan", "line": 230, "msg": "Scan complete: 19 installed, 1 missing required, 5 missing optional"}
+{"ts": "2026-04-14T20:55:27.661533", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "install_missing", "line": 364, "msg": "Installing 1 missing packages..."}
+{"ts": "2026-04-14T20:55:27.662186", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "install_one", "line": 277, "msg": "Installing: pyaudio"}
+{"ts": "2026-04-14T20:55:49.193584", "level": "ERROR", "module": "ShadowForge.Agent.AutoInstaller", "func": "install_one", "line": 319, "msg": "Install failed for pyaudio:      INFO:root:building 'pyaudio._portaudio' extension\n      error: Microsoft Visual C++ 14.0 or greater is required. Get it with \"Microsoft C++ Build Tools\": https://visualstudio.microsoft.com/visual-cpp-build-tools/\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\n  ERROR: Failed building wheel for pyaudio\nerror: failed-wheel-build-for-install\n\n× Failed to build installable wheels for some pyproject.toml based projects\n╰─> pyaudio\n"}
+{"ts": "2026-04-14T20:55:49.194518", "level": "INFO", "module": "ShadowForge.Agent.AutoInstaller", "func": "install_missing", "line": 400, "msg": "Installation complete: 0 succeeded, 1 failed, 0 skipped"}
+{"ts": "2026-04-14T20:55:49.195630", "level": "ERROR", "module": "ShadowForge.Agent.AutoInstaller", "func": "ensure_all", "line": 427, "msg": "Failed to install: pyaudio"}
+{"ts": "2026-04-14T20:55:49.196385", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 185, "msg": "Loading configuration..."}
+{"ts": "2026-04-14T20:55:49.198704", "level": "INFO", "module": "ShadowForge.Config", "func": "load", "line": 67, "msg": "Loaded .env from: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app\\.env"}
+{"ts": "2026-04-14T20:55:49.199335", "level": "INFO", "module": "ShadowForge.Config", "func": "_validate", "line": 147, "msg": "Available AI providers: 7 keys found."}
+{"ts": "2026-04-14T20:55:49.199843", "level": "INFO", "module": "ShadowForge.Config", "func": "load", "line": 82, "msg": "Configuration loaded successfully."}
+{"ts": "2026-04-14T20:55:49.200404", "level": "INFO", "module": "ShadowForge", "func": "main", "line": 189, "msg": "Launching application..."}
+{"ts": "2026-04-14T20:55:51.072309", "level": "INFO", "module": "ShadowForge.UI.SplashScreen", "func": "__init__", "line": 51, "msg": "SplashScreen displayed."}
+{"ts": "2026-04-14T20:55:52.377584", "level": "DEBUG", "module": "ShadowForge.UI.ModelSelector", "func": "_on_provider_change", "line": 310, "msg": "Provider selected: groq"}
+{"ts": "2026-04-14T20:55:52.443463", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "__init__", "line": 100, "msg": "Sandbox initialized. Workspace: C:\\Users\\user\\shadowforge_workspace"}
+{"ts": "2026-04-14T20:55:52.444697", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "__init__", "line": 101, "msg": "Forbidden paths: 14"}
+{"ts": "2026-04-14T20:55:52.445450", "level": "INFO", "module": "ShadowForge.Agent.SystemGuard", "func": "__init__", "line": 271, "msg": "SystemGuard initialized with 25 threat rules."}
+{"ts": "2026-04-14T20:55:52.446607", "level": "DEBUG", "module": "ShadowForge.Agent.PermissionManager", "func": "_load_from_file", "line": 175, "msg": "No permissions config at: C:\\Users\\user\\OneDrive\\Desktop\\AI-Access\\app\\config\\permissions.json"}
+{"ts": "2026-04-14T20:55:52.447400", "level": "INFO", "module": "ShadowForge.Agent.PermissionManager", "func": "__init__", "line": 160, "msg": "PermissionManager initialized. Rules: 18"}
+{"ts": "2026-04-14T20:55:52.447987", "level": "INFO", "module": "ShadowForge.Agent.PromptProcessor", "func": "__init__", "line": 149, "msg": "PromptProcessor initialized."}
+{"ts": "2026-04-14T20:55:52.448950", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "__init__", "line": 137, "msg": "AgentCore initialized."}
+{"ts": "2026-04-14T20:55:52.449710", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "__init__", "line": 138, "msg": "Workspace: C:\\Users\\user\\shadowforge_workspace"}
+{"ts": "2026-04-14T20:55:52.450381", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "__init__", "line": 139, "msg": "Sandbox mode: True"}
+{"ts": "2026-04-14T20:55:52.451578", "level": "INFO", "module": "ShadowForge.UI.MainWindow", "func": "_init_agent", "line": 256, "msg": "Agent initialized in UI."}
+{"ts": "2026-04-14T20:55:52.452682", "level": "INFO", "module": "ShadowForge.UI.MainWindow", "func": "__init__", "line": 102, "msg": "MainWindow initialized."}
+{"ts": "2026-04-14T20:57:35.488289", "level": "DEBUG", "module": "ShadowForge.Agent.PromptProcessor", "func": "process", "line": 181, "msg": "Prompt processed: intent=build is_command=False file_refs=0 chars=83"}
+{"ts": "2026-04-14T20:57:35.497006", "level": "DEBUG", "module": "ShadowForge.Agent.Core", "func": "__enter__", "line": 381, "msg": "⏱ START: AI Provider Call"}
+{"ts": "2026-04-14T20:57:36.750080", "level": "INFO", "module": "ShadowForge.AI.Groq", "func": "__init__", "line": 82, "msg": "GroqClient initialized. Model: llama-3.3-70b-versatile"}
+{"ts": "2026-04-14T20:57:36.750931", "level": "INFO", "module": "ShadowForge.AI.ProviderManager", "func": "_init_clients", "line": 220, "msg": "Provider ready: groq"}
+{"ts": "2026-04-14T20:57:37.774703", "level": "INFO", "module": "ShadowForge.AI.OpenRouter", "func": "__init__", "line": 97, "msg": "OpenRouterClient initialized. Model: meta-llama/llama-3.3-70b-instruct:free | Free: True"}
+{"ts": "2026-04-14T20:57:37.775663", "level": "INFO", "module": "ShadowForge.AI.ProviderManager", "func": "_init_clients", "line": 220, "msg": "Provider ready: openrouter"}
+{"ts": "2026-04-14T20:57:38.749228", "level": "INFO", "module": "ShadowForge.AI.Together", "func": "__init__", "line": 70, "msg": "TogetherClient initialized. Model: meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"}
+{"ts": "2026-04-14T20:57:38.750234", "level": "INFO", "module": "ShadowForge.AI.ProviderManager", "func": "_init_clients", "line": 220, "msg": "Provider ready: together"}
+{"ts": "2026-04-14T20:57:39.730725", "level": "INFO", "module": "ShadowForge.AI.Mistral", "func": "__init__", "line": 76, "msg": "MistralClient initialized. Model: open-mistral-nemo"}
+{"ts": "2026-04-14T20:57:39.731524", "level": "INFO", "module": "ShadowForge.AI.ProviderManager", "func": "_init_clients", "line": 220, "msg": "Provider ready: mistral"}
+{"ts": "2026-04-14T20:57:40.683578", "level": "INFO", "module": "ShadowForge.AI.Google", "func": "__init__", "line": 60, "msg": "GoogleClient initialized. Model: gemini-1.5-flash"}
+{"ts": "2026-04-14T20:57:40.684498", "level": "INFO", "module": "ShadowForge.AI.ProviderManager", "func": "_init_clients", "line": 220, "msg": "Provider ready: google"}
+{"ts": "2026-04-14T20:57:40.685483", "level": "WARNING", "module": "ShadowForge.AI.ProviderManager", "func": "_init_clients", "line": 227, "msg": "Provider init failed: cohere — No module named 'ai_providers.cohere_client'"}
+{"ts": "2026-04-14T20:57:41.672225", "level": "INFO", "module": "ShadowForge.AI.HuggingFace", "func": "__init__", "line": 76, "msg": "HuggingFaceClient initialized. Model: mistralai/Mistral-7B-Instruct-v0.3"}
+{"ts": "2026-04-14T20:57:41.673113", "level": "INFO", "module": "ShadowForge.AI.ProviderManager", "func": "_init_clients", "line": 220, "msg": "Provider ready: huggingface"}
+{"ts": "2026-04-14T20:57:41.687366", "level": "INFO", "module": "ShadowForge.AI.ArenaScraper", "func": "__init__", "line": 61, "msg": "ArenaScraper initialized (lazy — browser starts on first call)"}
+{"ts": "2026-04-14T20:57:41.688620", "level": "INFO", "module": "ShadowForge.AI.ProviderManager", "func": "_init_clients", "line": 220, "msg": "Provider ready: arena"}
+{"ts": "2026-04-14T20:57:41.689353", "level": "INFO", "module": "ShadowForge.AI.ProviderManager", "func": "__init__", "line": 194, "msg": "ProviderManager ready. Available: 7 providers."}
+{"ts": "2026-04-14T20:57:41.716933", "level": "INFO", "module": "ShadowForge.AI.ProviderManager", "func": "complete", "line": 360, "msg": "Trying provider: groq"}
+{"ts": "2026-04-14T20:57:43.786428", "level": "DEBUG", "module": "ShadowForge.AI.Groq", "func": "complete", "line": 169, "msg": "Groq OK: model=llama-3.3-70b-versatile tokens=582 latency=2068ms"}
+{"ts": "2026-04-14T20:57:43.787873", "level": "INFO", "module": "ShadowForge.AI.ProviderManager", "func": "complete", "line": 386, "msg": "Success: groq | model=llama-3.3-70b-versatile | tokens=582 | latency=2070ms"}
+{"ts": "2026-04-14T20:57:43.788962", "level": "WARNING", "module": "ShadowForge.Agent.Core", "func": "__exit__", "line": 388, "msg": "⏱ DONE: AI Provider Call — 8.292s"}
+{"ts": "2026-04-14T20:57:43.790611", "level": "DEBUG", "module": "ShadowForge.Agent.Core", "func": "_extract_files_from_response", "line": 271, "msg": "No <file> blocks found in response."}
+{"ts": "2026-04-14T20:57:43.791621", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "process", "line": 421, "msg": "Response: provider=groq model=llama-3.3-70b-versatile tokens=582 files=0 duration=8.31s sudo=False"}
+{"ts": "2026-04-14T20:58:23.631487", "level": "DEBUG", "module": "ShadowForge.UI.ModelSelector", "func": "_on_provider_change", "line": 310, "msg": "Provider selected: openrouter"}
+{"ts": "2026-04-14T21:00:14.195890", "level": "DEBUG", "module": "ShadowForge.Agent.PromptProcessor", "func": "process", "line": 181, "msg": "Prompt processed: intent=chat is_command=False file_refs=0 chars=132"}
+{"ts": "2026-04-14T21:00:14.204531", "level": "DEBUG", "module": "ShadowForge.Agent.Core", "func": "__enter__", "line": 381, "msg": "⏱ START: AI Provider Call"}
+{"ts": "2026-04-14T21:00:14.205930", "level": "INFO", "module": "ShadowForge.AI.ProviderManager", "func": "complete", "line": 360, "msg": "Trying provider: groq"}
+{"ts": "2026-04-14T21:00:17.684570", "level": "DEBUG", "module": "ShadowForge.AI.Groq", "func": "complete", "line": 169, "msg": "Groq OK: model=llama-3.3-70b-versatile tokens=1873 latency=3478ms"}
+{"ts": "2026-04-14T21:00:17.685952", "level": "INFO", "module": "ShadowForge.AI.ProviderManager", "func": "complete", "line": 386, "msg": "Success: groq | model=llama-3.3-70b-versatile | tokens=1873 | latency=3479ms"}
+{"ts": "2026-04-14T21:00:17.686715", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "__exit__", "line": 388, "msg": "⏱ DONE: AI Provider Call — 3.482s"}
+{"ts": "2026-04-14T21:00:17.693399", "level": "DEBUG", "module": "ShadowForge.Agent.Sandbox", "func": "_audit", "line": 231, "msg": "SANDBOX ALLOWED: WRITE on C:\\Users\\user\\shadowforge_workspace\\app\\templates\\base.html"}
+{"ts": "2026-04-14T21:00:17.694436", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "write_file", "line": 269, "msg": "File written: C:\\Users\\user\\shadowforge_workspace\\app\\templates\\base.html (818 bytes)"}
+{"ts": "2026-04-14T21:00:17.704157", "level": "DEBUG", "module": "ShadowForge.Agent.Sandbox", "func": "_audit", "line": 231, "msg": "SANDBOX ALLOWED: WRITE on C:\\Users\\user\\shadowforge_workspace\\app\\templates\\index.html"}
+{"ts": "2026-04-14T21:00:17.705483", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "write_file", "line": 269, "msg": "File written: C:\\Users\\user\\shadowforge_workspace\\app\\templates\\index.html (212 bytes)"}
+{"ts": "2026-04-14T21:00:17.734741", "level": "DEBUG", "module": "ShadowForge.Agent.Sandbox", "func": "_audit", "line": 231, "msg": "SANDBOX ALLOWED: WRITE on C:\\Users\\user\\shadowforge_workspace\\app\\templates\\about.html"}
+{"ts": "2026-04-14T21:00:17.735919", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "write_file", "line": 269, "msg": "File written: C:\\Users\\user\\shadowforge_workspace\\app\\templates\\about.html (205 bytes)"}
+{"ts": "2026-04-14T21:00:17.744467", "level": "DEBUG", "module": "ShadowForge.Agent.Sandbox", "func": "_audit", "line": 231, "msg": "SANDBOX ALLOWED: WRITE on C:\\Users\\user\\shadowforge_workspace\\app\\templates\\contact.html"}
+{"ts": "2026-04-14T21:00:17.745529", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "write_file", "line": 269, "msg": "File written: C:\\Users\\user\\shadowforge_workspace\\app\\templates\\contact.html (565 bytes)"}
+{"ts": "2026-04-14T21:00:17.753237", "level": "DEBUG", "module": "ShadowForge.Agent.Sandbox", "func": "_audit", "line": 231, "msg": "SANDBOX ALLOWED: WRITE on C:\\Users\\user\\shadowforge_workspace\\app\\static\\css\\style.css"}
+{"ts": "2026-04-14T21:00:17.754154", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "write_file", "line": 269, "msg": "File written: C:\\Users\\user\\shadowforge_workspace\\app\\static\\css\\style.css (595 bytes)"}
+{"ts": "2026-04-14T21:00:17.759217", "level": "DEBUG", "module": "ShadowForge.Agent.Sandbox", "func": "_audit", "line": 231, "msg": "SANDBOX ALLOWED: WRITE on C:\\Users\\user\\shadowforge_workspace\\app\\static\\js\\script.js"}
+{"ts": "2026-04-14T21:00:17.760270", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "write_file", "line": 269, "msg": "File written: C:\\Users\\user\\shadowforge_workspace\\app\\static\\js\\script.js (211 bytes)"}
+{"ts": "2026-04-14T21:00:17.764951", "level": "DEBUG", "module": "ShadowForge.Agent.Sandbox", "func": "_audit", "line": 231, "msg": "SANDBOX ALLOWED: WRITE on C:\\Users\\user\\shadowforge_workspace\\app\\app.py"}
+{"ts": "2026-04-14T21:00:17.765911", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "write_file", "line": 269, "msg": "File written: C:\\Users\\user\\shadowforge_workspace\\app\\app.py (358 bytes)"}
+{"ts": "2026-04-14T21:00:17.770742", "level": "DEBUG", "module": "ShadowForge.Agent.Sandbox", "func": "_audit", "line": 231, "msg": "SANDBOX ALLOWED: WRITE on C:\\Users\\user\\shadowforge_workspace\\requirements.txt"}
+{"ts": "2026-04-14T21:00:17.771881", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "write_file", "line": 269, "msg": "File written: C:\\Users\\user\\shadowforge_workspace\\requirements.txt (20 bytes)"}
+{"ts": "2026-04-14T21:00:17.776263", "level": "DEBUG", "module": "ShadowForge.Agent.Sandbox", "func": "_audit", "line": 231, "msg": "SANDBOX ALLOWED: WRITE on C:\\Users\\user\\shadowforge_workspace\\README.md"}
+{"ts": "2026-04-14T21:00:17.777174", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "write_file", "line": 269, "msg": "File written: C:\\Users\\user\\shadowforge_workspace\\README.md (98 bytes)"}
+{"ts": "2026-04-14T21:00:17.784075", "level": "DEBUG", "module": "ShadowForge.Agent.Sandbox", "func": "_audit", "line": 231, "msg": "SANDBOX ALLOWED: WRITE on C:\\Users\\user\\shadowforge_workspace\\.gitignore"}
+{"ts": "2026-04-14T21:00:17.785013", "level": "INFO", "module": "ShadowForge.Agent.Sandbox", "func": "write_file", "line": 269, "msg": "File written: C:\\Users\\user\\shadowforge_workspace\\.gitignore (26 bytes)"}
+{"ts": "2026-04-14T21:00:17.786335", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "_extract_files_from_response", "line": 301, "msg": "Extracted and wrote 10 files."}
+{"ts": "2026-04-14T21:00:17.787502", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "process", "line": 421, "msg": "Response: provider=groq model=llama-3.3-70b-versatile tokens=1873 files=10 duration=3.59s sudo=False"}
+{"ts": "2026-04-14T21:02:06.159263", "level": "DEBUG", "module": "ShadowForge.Agent.PromptProcessor", "func": "process", "line": 181, "msg": "Prompt processed: intent=deploy is_command=False file_refs=0 chars=76"}
+{"ts": "2026-04-14T21:02:06.168496", "level": "DEBUG", "module": "ShadowForge.Agent.Core", "func": "__enter__", "line": 381, "msg": "⏱ START: AI Provider Call"}
+{"ts": "2026-04-14T21:02:06.169891", "level": "INFO", "module": "ShadowForge.AI.ProviderManager", "func": "complete", "line": 360, "msg": "Trying provider: groq"}
+{"ts": "2026-04-14T21:02:08.781641", "level": "DEBUG", "module": "ShadowForge.AI.Groq", "func": "complete", "line": 169, "msg": "Groq OK: model=llama-3.3-70b-versatile tokens=2377 latency=2611ms"}
+{"ts": "2026-04-14T21:02:08.783281", "level": "INFO", "module": "ShadowForge.AI.ProviderManager", "func": "complete", "line": 386, "msg": "Success: groq | model=llama-3.3-70b-versatile | tokens=2377 | latency=2612ms"}
+{"ts": "2026-04-14T21:02:08.784415", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "__exit__", "line": 388, "msg": "⏱ DONE: AI Provider Call — 2.616s"}
+{"ts": "2026-04-14T21:02:08.785617", "level": "DEBUG", "module": "ShadowForge.Agent.Core", "func": "_extract_files_from_response", "line": 271, "msg": "No <file> blocks found in response."}
+{"ts": "2026-04-14T21:02:08.786782", "level": "INFO", "module": "ShadowForge.Agent.Core", "func": "process", "line": 421, "msg": "Response: provider=groq model=llama-3.3-70b-versatile tokens=2377 files=0 duration=2.63s sudo=False"}
+{"ts": "2026-04-14T21:02:41.242030", "level": "INFO", "module": "ShadowForge.UI.ModelSelector", "func": "_on_apply", "line": 328, "msg": "Provider applied: openrouter / anthropic/claude-3-haiku"}
+{"ts": "2026-04-14T21:02:56.473773", "level": "INFO", "module": "ShadowForge.UI.MainWindow", "func": "closeEvent", "line": 386, "msg": "MainWindow closed."}
+{"ts": "2026-04-14T21:02:56.884230", "level": "INFO", "module": "ShadowForge.AI.ArenaScraper", "func": "close", "line": 295, "msg": "Arena browser closed."}

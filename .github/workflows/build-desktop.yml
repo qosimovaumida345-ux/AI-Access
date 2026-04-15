@@ -1,0 +1,44 @@
+name: Build Desktop App
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'desktop-app/**'
+      - '.github/workflows/build-desktop.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: desktop-app/package-lock.json
+
+      - name: Install Dependencies
+        working-directory: ./desktop-app
+        run: npm ci
+
+      - name: Build React App (Vite)
+        working-directory: ./desktop-app
+        run: npm run build
+        
+      - name: Build Electron Executable
+        working-directory: ./desktop-app
+        run: npm run dist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Upload EXE Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AI-Access-Windows-Setup
+          path: desktop-app/dist-electron/*.exe
