@@ -25,7 +25,7 @@ jobs:
 
       - name: Install Dependencies
         working-directory: ./desktop-app
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       - name: Build React App (Vite)
         working-directory: ./desktop-app

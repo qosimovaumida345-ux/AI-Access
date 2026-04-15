@@ -32,7 +32,7 @@ jobs:
 
       - name: Install Dependencies
         working-directory: ./mobile-app
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       - name: Build APK
         working-directory: ./mobile-app
