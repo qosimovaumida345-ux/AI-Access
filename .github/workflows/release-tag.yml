@@ -75,6 +75,8 @@ jobs:
       - name: Build APK on EAS
         working-directory: ./mobile-app
         run: eas build --platform android --profile preview --non-interactive --wait --json > build.json
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
       - name: Download APK from build output
         working-directory: ./mobile-app
