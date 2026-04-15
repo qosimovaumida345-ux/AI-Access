@@ -14,7 +14,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent))
 
 from core.config import Config
-from core.logger import setup_logging
+from core.logger import setup_logger
 from agent.agent_core import AgentCore, MessageRole
 
 app = Flask(__name__)
@@ -22,7 +22,7 @@ app = Flask(__name__)
 # Initialize Core components
 config = Config()
 config.load()
-setup_logging(config)
+setup_logger(config)
 agent = AgentCore(config)
 
 logger = logging.getLogger("Bridge.Server")
