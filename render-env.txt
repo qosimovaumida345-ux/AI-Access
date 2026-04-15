@@ -1,0 +1,22 @@
+# ShadowForge OS - Render Deployment Environment Variables
+# Copy these into Render's 'Environment Variables' section.
+
+# 1. AI PROVIDER KEYS (Add yours)
+GROQ_API_KEY=your_groq_key_here
+GOOGLE_AI_API_KEY=your_gemini_key_here
+OPENROUTER_API_KEY=your_openrouter_key_here
+TOGETHER_API_KEY=optional_key
+MISTRAL_API_KEY=optional_key
+
+# 2. BACKEND SETTINGS (Node.js)
+PORT=5000
+BRIDGE_URL=http://your-python-service.onrender.com
+
+# 3. BRIDGE SETTINGS (Python)
+BRIDGE_PORT=8000
+LOG_LEVEL=INFO
+DEBUG=false
+
+# 4. GITHUB INTEGRATION
+GITHUB_TOKEN=your_github_pat
+GITHUB_USERNAME=your_username

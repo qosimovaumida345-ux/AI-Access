@@ -226,8 +226,8 @@ class ProviderManager:
                 self._stats[provider_name].last_error = str(e)
                 logger.warning(f"Provider init failed: {provider_name} — {e}")
 
-    def _init_groq(self):
-        key = self.config.get("GROQ_API_KEY")
+    def _init_groq(self, override_key: Optional[str] = None):
+        key = override_key or self.config.get("GROQ_API_KEY")
         if not key:
             return None
         from ai_providers.groq_client import GroqClient
@@ -315,6 +315,7 @@ class ProviderManager:
         timeout:     int   = 60,
         prefer:      Optional[str] = None,
         use_cache:   bool  = True,
+        api_keys:    Optional[Dict[str, str]] = None,
     ) -> Dict[str, Any]:
         """
         Send messages to the best available provider.
@@ -363,14 +364,32 @@ class ProviderManager:
 
             for attempt in range(AGENT_MAX_RETRIES):
                 try:
-                    result = client.complete(
-                        messages    = messages,
-                        max_tokens  = max_tokens,
-                        temperature = temperature,
-                        timeout     = timeout,
-                    )
+                    # If dynamic keys are provided, we may need to create a temporary client
+                    # or override the key. For simplicity, we'll check if the client supports key override.
+                    current_api_key = api_keys.get(f"{provider_name.upper()}_API_KEY") if api_keys else None
+                    
+                    if current_api_key:
+                        # Initialize a temporary client with the provided key
+                        temp_client = self._get_temp_client(provider_name, current_api_key)
+                        if temp_client:
+                            result = temp_client.complete(
+                                messages    = messages,
+                                max_tokens  = max_tokens,
+                                temperature = temperature,
+                                timeout     = timeout,
+                            )
+                        else:
+                            continue # Skip if couldn't create temp client
+                    else:
+                        # Use default client
+                        result = client.complete(
+                            messages    = messages,
+                            max_tokens  = max_tokens,
+                            temperature = temperature,
+                            timeout     = timeout,
+                        )
 
-                    # Success
+                    # Success handling
                     latency_ms = (time.perf_counter() - start_time) * 1000
                     self._record_success(
                         provider_name, latency_ms,
@@ -444,6 +463,7 @@ class ProviderManager:
         max_tokens:  int   = 4096,
         temperature: float = 0.7,
         prefer:      Optional[str] = None,
+        api_keys:    Optional[Dict[str, str]] = None,
     ) -> Generator[str, None, None]:
         """
         Stream tokens from the best available provider.
@@ -582,6 +602,25 @@ class ProviderManager:
     def clear_cache(self) -> None:
         if self._cache:
             self._cache.clear()
+
+    def _get_temp_client(self, provider_name: str, api_key: str) -> Any:
+        """Create a temporary client for a specific request with a given key."""
+        init_map = {
+            PROVIDER_GROQ:        lambda k: self._init_groq(k),
+            PROVIDER_OPENROUTER:  lambda k: self._init_openrouter_all(k),
+            PROVIDER_TOGETHER:    lambda k: self._init_together_all(k),
+            # Add others as needed
+        }
+        fn = init_map.get(provider_name)
+        return fn(api_key) if fn else None
+
+    def _init_openrouter_all(self, key: str):
+        from ai_providers.openrouter_client import OpenRouterClient
+        return OpenRouterClient(api_key=key)
+
+    def _init_together_all(self, key: str):
+        from ai_providers.together_client import TogetherClient
+        return TogetherClient(api_key=key)
 
     def __repr__(self) -> str:
         return (

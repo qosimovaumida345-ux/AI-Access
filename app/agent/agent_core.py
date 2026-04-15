@@ -327,6 +327,7 @@ class AgentCore:
         user_input:   str,
         workspace:    Optional[Path] = None,
         stream:       bool           = False,
+        api_keys:     Optional[Dict[str, str]] = None,
     ) -> AgentResponse:
         """
         Main entry point for processing user input.
@@ -391,6 +392,7 @@ class AgentCore:
                     max_tokens  = AGENT_MAX_TOKENS,
                     temperature = AGENT_TEMPERATURE if not is_sudo else 0.9,
                     timeout     = AGENT_TIMEOUT_SECONDS,
+                    api_keys    = api_keys,
                 )
 
         except Exception as e:
@@ -469,6 +471,7 @@ class AgentCore:
         self,
         user_input: str,
         workspace:  Optional[Path] = None,
+        api_keys:   Optional[Dict[str, str]] = None,
     ) -> Generator[str, None, None]:
         """
         Streaming version of process().
@@ -482,7 +485,7 @@ class AgentCore:
         full_response = []
 
         try:
-            for token in self.provider_manager.stream(messages):
+            for token in self.provider_manager.stream(messages, api_keys=api_keys):
                 full_response.append(token)
                 yield token
         except Exception as e:

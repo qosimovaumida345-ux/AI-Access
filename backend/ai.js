@@ -16,7 +16,8 @@ async function callWithFallback(messages, options = {}) {
     const response = await axios.post(`${BRIDGE_URL}/api/chat`, {
       prompt: prompt,
       is_sudo: options.sudo || false,
-      workspace: options.workspace || null
+      workspace: options.workspace || null,
+      api_keys: options.api_keys || {}
       // Options like 'providers' can be added if the bridge supports it
     }, {
       timeout: 300000 // 5 minute timeout for complex tasks

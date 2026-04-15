@@ -56,7 +56,8 @@ def chat():
         if is_sudo and not prompt.startswith("sudo "):
             prompt = f"sudo {prompt}"
             
-        response = agent.process(prompt, workspace=workspace)
+        api_keys = data.get("api_keys", {})
+        response = agent.process(prompt, workspace=workspace, api_keys=api_keys)
         
         return jsonify({
             "success": response.success,
@@ -86,4 +87,4 @@ def clear_history():
 if __name__ == "__main__":
     PORT = int(os.environ.get("BRIDGE_PORT", 8000))
     logger.info(f"Starting Python Bridge Server on port {PORT}...")
-    app.run(host="127.0.0.1", port=PORT, debug=False)
+    app.run(host="0.0.0.0", port=PORT, debug=False)

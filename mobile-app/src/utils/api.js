@@ -1,13 +1,30 @@
 import axios from 'axios';
 import { io } from 'socket.io-client';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 let socket = null;
-export const API_BASE_URL = process.env.EXPO_PUBLIC_API_BASE_URL || "http://192.168.1.100:5000";
+const DEFAULT_URL = "http://192.168.1.100:5000";
+
+const getBaseUrl = async () => {
+  const savedUrl = await AsyncStorage.getItem('SHADOWFORGE_BACKEND_URL');
+  return savedUrl || DEFAULT_URL;
+};
+
+export const checkHealth = async () => {
+  try {
+    const baseUrl = await getBaseUrl();
+    const res = await axios.get(`${baseUrl}/api/health`, { timeout: 10000 });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const initSocket = async (token) => {
   if (socket) return socket;
-  // Initialize WebSocket for real-time exam answers
-  socket = io(API_BASE_URL);
+  const baseUrl = await getBaseUrl();
+  socket = io(baseUrl);
   
   socket.on('connect', () => {
     socket.emit('register', { token });
@@ -16,12 +33,16 @@ export const initSocket = async (token) => {
   return socket;
 };
 
-export const analyzeScreenImage = async (imageBase64, token, prompt = "Solve the question shown. Reply ONLY with the brief, correct answer.") => {
+export const analyzeScreenImage = async (imageBase64, token, options = {}) => {
   try {
-    const res = await axios.post(`${API_BASE_URL}/api/screen`, {
+    const baseUrl = await getBaseUrl();
+    const res = await axios.post(`${baseUrl}/api/screen`, {
       imageBase64,
       token,
-      prompt
+      prompt: options.prompt || "Solve the question shown. Reply ONLY with the brief, correct answer.",
+      options: {
+        api_keys: options.api_keys
+      }
     });
     return res.data;
   } catch (error) {
@@ -30,11 +51,15 @@ export const analyzeScreenImage = async (imageBase64, token, prompt = "Solve the
   }
 };
 
-export const chatWithAI = async (messages, token) => {
+export const chatWithAI = async (messages, token, options = {}) => {
   try {
-    const res = await axios.post(`${API_BASE_URL}/api/chat`, {
+    const baseUrl = await getBaseUrl();
+    const res = await axios.post(`${baseUrl}/api/chat`, {
       messages,
-      token
+      token,
+      options: {
+        api_keys: options.api_keys
+      }
     });
     return res.data;
   } catch (error) {
