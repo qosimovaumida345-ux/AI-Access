@@ -22,7 +22,7 @@ app = Flask(__name__)
 # Initialize Core components
 config = Config()
 config.load()
-setup_logger(config)
+setup_logger()
 agent = AgentCore(config)
 
 logger = logging.getLogger("Bridge.Server")
