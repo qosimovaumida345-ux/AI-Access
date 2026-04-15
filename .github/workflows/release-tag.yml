@@ -11,8 +11,11 @@ permissions:
 
 jobs:
   desktop:
-    name: Build Desktop EXE
-    runs-on: windows-latest
+    name: Build Desktop (${{ matrix.os }})
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,17 +31,21 @@ jobs:
         working-directory: ./desktop-app
         run: npm install --no-audit --no-fund
 
-      - name: Build desktop release
+      - name: Build and Distribute
         working-directory: ./desktop-app
         run: npm run dist
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload desktop artifact
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: desktop-exe
-          path: desktop-app/dist-electron/*.exe
+          name: desktop-artifacts-${{ matrix.os }}
+          path: |
+            desktop-app/dist-electron/*.exe
+            desktop-app/dist-electron/*.dmg
+            desktop-app/dist-electron/*.deb
+            desktop-app/dist-electron/*.AppImage
 
   mobile:
     name: Build Mobile APK
@@ -96,22 +103,36 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download desktop artifact
+      - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
-          name: desktop-exe
-          path: release-assets
+          path: all-artifacts
 
-      - name: Download mobile artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: mobile-apk
-          path: release-assets
+      - name: Prepare release assets
+        run: |
+          mkdir -p release-assets
+          cp all-artifacts/desktop-artifacts-*/* release-assets/ || true
+          cp all-artifacts/mobile-apk/ai-access.apk release-assets/ || true
 
       - name: Create or update release
         uses: softprops/action-gh-release@v2
         with:
-          files: |
-            release-assets/*.exe
-            release-assets/*.apk
+          files: release-assets/*
           generate_release_notes: true
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          body: |
+            ## 🚀 ShadowForge OS — Neural Access Assistant
+            
+            This release features a unified AI architecture and premium UI experience.
+            
+            ### ✨ Features
+            - **Unified AI Brain**: Bridged Node.js with Python Agent Core.
+            - **Full Device Access**: Integrated tools for system control (WiFi, Volume, Status).
+            - **Premium UI**: Modern glassmorphism design with HUD-style exam overlay.
+            - **Cross-Platform**: Builds for Windows, Linux, macOS, and Android.
+            
+            ### 🛠 Installation
+            - **Desktop**: Download the artifact for your OS and install.
+            - **Mobile**: Install the APK on your Android device.
+            - **Backend**: Ensure you have Python 3.10+ and Node.js 20+ installed to run the local brain.

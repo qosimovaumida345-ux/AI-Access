@@ -1,26 +1,81 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=JetBrains+Mono&display=swap');
 
-@layer utilities {
-  .glass-ui {
-    background: rgba(15, 23, 42, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(0,0,0,0.2);
-    border-radius: 10px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(59, 130, 246, 0.5);
-    border-radius: 10px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(59, 130, 246, 0.8);
-  }
+:root {
+  --bg-deep: #05010a;
+  --bg-surface: rgba(13, 0, 24, 0.7);
+  --bg-surface-2: rgba(26, 0, 48, 0.8);
+  --accent-purple: #6600cc;
+  --accent-purple-glow: rgba(102, 0, 204, 0.4);
+  --accent-red: #ff0015;
+  --accent-green: #00ff88;
+  --text-primary: #f0e8ff;
+  --text-muted: #8c76ad;
+  --border-color: rgba(102, 0, 204, 0.25);
+  --glass-blur: 12px;
+  --font-main: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  overflow: hidden;
+  height: 100vh;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Glassmorphism Classes */
+.glass {
+  background: var(--bg-surface);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+.glass-card {
+  background: var(--bg-surface-2);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-purple);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-purple-glow);
+}
+
+/* Common Animations */
+@keyframes glow {
+  0% { box-shadow: 0 0 5px var(--accent-purple-glow); }
+  50% { box-shadow: 0 0 20px var(--accent-purple-glow); }
+  100% { box-shadow: 0 0 5px var(--accent-purple-glow); }
+}
+
+.glow-active {
+  animation: glow 2s infinite ease-in-out;
 }

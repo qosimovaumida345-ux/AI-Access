@@ -26,6 +26,7 @@ from agent.sandbox import Sandbox
 from agent.permission_manager import PermissionManager
 from agent.prompt_processor import PromptProcessor
 from agent.system_guard import SystemGuard
+from agent.tools import ToolBox
 
 logger = get_logger("Agent.Core")
 
@@ -108,6 +109,24 @@ Rules:
 6. After all files, output: <structure>folder tree here</structure>
 """.strip()
 
+TOOL_SYSTEM_PROMPT = """
+You have access to the following tools to control the user's device and access information:
+
+1. system_control(action: str) 
+   - action: "wifi_on", "wifi_off", "get_status"
+2. browser(action: str, query: str)
+   - action: "open" (opens query as URL), "search" (searches query on Google)
+3. filesystem(action: str, path: str, out: str)
+   - action: "extract" (unzips file at path to out)
+4. exec_python(code: str)
+   - [SUDO ONLY] executes Python code on the device.
+
+To use a tool, wrap the call in a <tool> block like this:
+<tool name="system_control">{"action": "get_status"}</tool>
+
+You can call multiple tools in one response. I will provide the output of the tools, and you can then continue your response.
+""".strip()
+
 
 # ── AGENT CORE CLASS ──────────────────────────────────────
 class AgentCore:
@@ -125,6 +144,7 @@ class AgentCore:
         self.guard     = SystemGuard()
         self.perms     = PermissionManager()
         self.processor = PromptProcessor()
+        self.tools     = ToolBox(self)
 
         self._history:  List[Message] = []
         self._state:    AgentState    = AgentState.IDLE
@@ -211,9 +231,9 @@ class AgentCore:
         if override_system:
             system_content = override_system
         elif is_sudo:
-            system_content = SUDO_SYSTEM_PROMPT
+            system_content = SUDO_SYSTEM_PROMPT + "\n\n" + TOOL_SYSTEM_PROMPT
         else:
-            system_content = BASE_SYSTEM_PROMPT
+            system_content = BASE_SYSTEM_PROMPT + "\n\n" + TOOL_SYSTEM_PROMPT
 
         messages.append({
             "role":    "system",
@@ -418,6 +438,15 @@ class AgentCore:
 
         self._set_state(AgentState.IDLE)
 
+        # Extract and execute any tool calls
+        tool_results = self._execute_tool_calls(response_content, is_sudo=is_sudo)
+        if tool_results:
+            response_content += "\n\n" + "\n".join(tool_results)
+            # Add updated response to history
+            self._history[-1].content = response_content
+
+        self._set_state(AgentState.IDLE)
+
         logger.info(
             f"Response: provider={provider_used} model={model_used} "
             f"tokens={tokens_used} files={len(written_files)} "
@@ -541,6 +570,21 @@ class AgentCore:
         except Exception as e:
             logger.error(f"Export failed: {e}")
             return False
+
+    def _execute_tool_calls(self, response: str, is_sudo: bool = False) -> List[str]:
+        """Parse and execute <tool name="...">...</tool> blocks."""
+        pattern = re.compile(r'<tool\s+name=["\']([^"\']+)["\']>(.*?)</tool>', re.DOTALL)
+        matches = pattern.findall(response)
+        
+        results = []
+        for name, args_str in matches:
+            try:
+                args = json.loads(args_str.strip())
+                result = self.tools.execute(name, args, is_sudo=is_sudo)
+                results.append(f"◈ TOOL RESULT [{name}]: {json.dumps(result)}")
+            except Exception as e:
+                results.append(f"◈ TOOL ERROR [{name}]: {str(e)}")
+        return results
 
     def __repr__(self) -> str:
         return (

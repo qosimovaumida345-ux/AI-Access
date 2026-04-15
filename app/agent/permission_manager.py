@@ -85,7 +85,7 @@ DEFAULT_PERMISSIONS: Dict[Permission, PermissionLevel] = {
     Permission.RUN_SUBPROCESS:      PermissionLevel.PROMPT,
     Permission.INSTALL_PACKAGES:    PermissionLevel.ALLOWED,
     Permission.ACCESS_ENV_VARS:     PermissionLevel.ALLOWED,
-    Permission.MODIFY_SYSTEM:       PermissionLevel.DENIED,     # NEVER
+    Permission.MODIFY_SYSTEM:       PermissionLevel.SUDO_ONLY,
 
     # GitHub
     Permission.GITHUB_READ:         PermissionLevel.ALLOWED,
@@ -102,13 +102,12 @@ DEFAULT_PERMISSIONS: Dict[Permission, PermissionLevel] = {
 }
 
 # Permissions that are ALWAYS denied, regardless of sudo
-ALWAYS_DENIED: Set[Permission] = {
-    Permission.MODIFY_SYSTEM,
-}
+ALWAYS_DENIED: Set[Permission] = set()
 
 # Permissions that require sudo
 SUDO_REQUIRED: Set[Permission] = {
     Permission.UNRESTRICTED_OUTPUT,
+    Permission.MODIFY_SYSTEM,
 }
 
 

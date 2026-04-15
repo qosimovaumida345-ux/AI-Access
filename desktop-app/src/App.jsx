@@ -6,11 +6,13 @@ import {
   FolderSearch, 
   Code2, 
   Image as ImageIcon, 
-  Music, 
   Settings, 
-  Maximize,
   Send,
-  Loader2
+  Loader2,
+  ShieldAlert,
+  Terminal,
+  Cpu,
+  Zap
 } from 'lucide-react';
 import FileBrowser from './FileBrowser';
 import CodeWorkspace from './CodeWorkspace';
@@ -20,10 +22,11 @@ import { chatWithAI } from './services/api';
 export default function App() {
   const [activeTab, setActiveTab] = useState('chat');
   const [token, setToken] = useState('NOT_BOUND');
-  const [messages, setMessages] = useState([{ role: 'system', content: 'AI-Access is fully integrated. How can I assist you today?' }]);
+  const [isSudo, setIsSudo] = useState(false);
+  const [messages, setMessages] = useState([{ role: 'system', content: 'ShadowForge OS Online. Universal AI-Access established.' }]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [status, setStatus] = useState('Idle');
+  const [status, setStatus] = useState('Standby');
   const scrollRef = useRef(null);
 
   useEffect(() => {
@@ -37,15 +40,18 @@ export default function App() {
     setMessages(chatHistory);
     setInput('');
     setIsTyping(true);
-    setStatus('Sending');
+    setStatus('Processing...');
 
     try {
-      const res = await chatWithAI(chatHistory.filter(m => m.role !== 'system'), token);
+      const res = await chatWithAI(chatHistory.filter(m => m.role !== 'system'), {
+        token,
+        sudo: isSudo
+      });
       setMessages([...chatHistory, { role: 'assistant', content: res.text }]);
-      setStatus(`Provider: ${res.provider || 'unknown'}`);
+      setStatus(`${res.provider ? res.provider.toUpperCase() : 'AI'} ACTIVE`);
     } catch (e) {
-      setMessages([...chatHistory, { role: 'assistant', content: "ERROR: Connection to AI Core failed. Is the backend running?" }]);
-      setStatus('Failed');
+      setMessages([...chatHistory, { role: 'assistant', content: "CRITICAL: Connection to AI Brain lost. Ensure the Python Core is running." }]);
+      setStatus('OFFLINE');
     } finally {
       setIsTyping(false);
     }
@@ -59,186 +65,205 @@ export default function App() {
   const NavItem = ({ id, icon: Icon, label }) => (
     <button 
       onClick={() => setActiveTab(id)} 
-      className={`group flex items-center justify-center w-14 h-14 rounded-2xl transition-all duration-300 ${
+      className={`group relative flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 ${
         activeTab === id 
-          ? 'bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 text-indigo-400 shadow-[0_0_15px_rgba(99,102,241,0.2)]' 
-          : 'text-slate-500 hover:text-slate-300 hover:bg-white/5'
+          ? 'bg-purple-600/20 text-purple-400 shadow-[0_0_20px_rgba(102,0,204,0.3)]' 
+          : 'text-gray-500 hover:text-gray-200'
       }`}
       title={label}
     >
-      <Icon size={24} strokeWidth={activeTab === id ? 2.5 : 2} />
+      <Icon size={22} strokeWidth={activeTab === id ? 2.5 : 2} />
+      {activeTab === id && (
+        <motion.div layoutId="nav-indicator" className="absolute -left-1 w-1 h-6 bg-purple-500 rounded-full" />
+      )}
     </button>
   );
 
   return (
-    <div className="h-screen w-full flex flex-col bg-[#0b0c10] text-slate-200 overflow-hidden font-sans border border-slate-800 shadow-2xl relative">
-      {/* Absolute Ambient Glow */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none"></div>
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-purple-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+    <div className="h-screen w-full flex flex-col bg-bg-deep text-text-primary overflow-hidden relative">
+      {/* Background Orbs */}
+      <div className="absolute top-[-10%] left-[10%] w-[40%] h-[40%] bg-purple-900/10 blur-[150px] rounded-full"></div>
+      <div className="absolute bottom-[-10%] right-[10%] w-[40%] h-[40%] bg-red-900/5 blur-[150px] rounded-full"></div>
 
-      {/* Draggable Title Bar */}
+      {/* Control Bar */}
       <div 
         style={{ WebkitAppRegion: 'drag' }} 
-        className="flex justify-between items-center px-5 py-3 border-b border-white/5 bg-black/20 backdrop-blur-md z-50 relative"
+        className="flex justify-between items-center px-6 py-4 z-50 glass border-b-0"
       >
         <div className="flex gap-4 items-center" style={{ WebkitAppRegion: 'no-drag' }}>
           <div className="flex gap-2">
-             <div className="w-3.5 h-3.5 rounded-full bg-[#ff5f56] hover:bg-red-400 cursor-pointer shadow-sm transition" onClick={closeApp}></div>
-             <div className="w-3.5 h-3.5 rounded-full bg-[#ffbd2e] hover:bg-yellow-400 cursor-pointer shadow-sm transition" onClick={minimizeApp}></div>
-             <div className="w-3.5 h-3.5 rounded-full bg-[#27c93f] hover:bg-green-400 cursor-pointer shadow-sm transition" onClick={maximizeApp}></div>
+             <div className="w-3 h-3 rounded-full bg-red-500/80 hover:bg-red-500 transition cursor-pointer" onClick={closeApp}></div>
+             <div className="w-3 h-3 rounded-full bg-yellow-500/80 hover:bg-yellow-500 transition cursor-pointer" onClick={minimizeApp}></div>
+             <div className="w-3 h-3 rounded-full bg-green-500/80 hover:bg-green-500 transition cursor-pointer" onClick={maximizeApp}></div>
           </div>
-          <span className="ml-2 text-xs font-semibold tracking-[0.2em] text-indigo-200/70 flex items-center gap-2">
-            <Sparkles size={12} className="text-purple-400" />
-            AI-ACCESS GEMINI
+          <div className="h-4 w-px bg-white/10 mx-2"></div>
+          <span className="text-[10px] font-bold tracking-[.3em] uppercase text-text-muted flex items-center gap-2">
+            <Zap size={10} className="text-purple-500 animate-pulse" />
+            ShadowForge OS
           </span>
+        </div>
+
+        <div className="flex items-center gap-4" style={{ WebkitAppRegion: 'no-drag' }}>
+          <div className={`flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold border transition-all ${
+            isSudo ? 'bg-red-500/10 border-red-500/30 text-red-400' : 'bg-white/5 border-white/10 text-text-muted'
+          }`}>
+            <ShieldAlert size={12} />
+            {isSudo ? 'SUDO ACTIVE' : 'USER MODE'}
+            <button 
+              onClick={() => setIsSudo(!isSudo)}
+              className={`ml-2 w-8 h-4 rounded-full relative transition-colors ${isSudo ? 'bg-red-500' : 'bg-gray-700'}`}
+            >
+              <div className={`absolute top-0.5 w-3 h-3 bg-white rounded-full transition-all ${isSudo ? 'left-4.5' : 'left-0.5'}`}></div>
+            </button>
+          </div>
+          <div className="flex items-center gap-2 text-[10px] text-text-muted">
+             <Cpu size={12} />
+             {status}
+          </div>
         </div>
       </div>
 
-      <div className="flex flex-1 overflow-hidden z-10 relative">
+      <div className="flex flex-1 overflow-hidden z-10">
         {/* Sidebar */}
-        <div className="w-20 bg-[#13141c]/80 backdrop-blur-xl flex flex-col items-center py-6 border-r border-white/5 gap-4 shadow-2xl">
-          <NavItem id="chat" icon={MessageSquare} label="Chat" />
-          <NavItem id="files" icon={FolderSearch} label="File Manager" />
-          <NavItem id="code" icon={Code2} label="Code Editor" />
-          <NavItem id="media" icon={ImageIcon} label="Media & Music" />
-          
+        <div className="w-20 glass border-l-0 border-y-0 flex flex-col items-center py-8 gap-6">
+          <NavItem id="chat" icon={MessageSquare} label="Neural Chat" />
+          <NavItem id="files" icon={FolderSearch} label="FS Explorer" />
+          <NavItem id="code" icon={Code2} label="Logic Forge" />
+          <NavItem id="media" icon={ImageIcon} label="Asset Studio" />
           <div className="flex-1"></div>
-          
-          <NavItem id="settings" icon={Settings} label="Settings" />
+          <NavItem id="settings" icon={Settings} label="Core Config" />
         </div>
 
-        {/* Main Content Area */}
-        <div className="flex-1 flex flex-col relative bg-gradient-to-b from-transparent to-black/20">
-          
+        {/* Main Workspace */}
+        <div className="flex-1 flex flex-col relative">
           <AnimatePresence mode="wait">
             {activeTab === 'chat' && (
               <motion.div 
                 key="chat"
-                initial={{ opacity: 0, scale: 0.98 }} 
-                animate={{ opacity: 1, scale: 1 }} 
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="flex flex-col h-full w-full max-w-4xl mx-auto p-6"
+                initial={{ opacity: 0, y: 10 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                exit={{ opacity: 0, y: -10 }}
+                className="flex flex-col h-full w-full max-w-5xl mx-auto p-8"
               >
-                <div className="flex items-center gap-3 mb-6">
-                   <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-                      <Sparkles size={20} className="text-white" />
-                   </div>
-                   <h2 className="text-xl font-medium text-slate-100 tracking-wide">Hi, I'm ready to help.</h2>
-                   <span className="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-slate-400">Status: {status}</span>
-                </div>
-
-                <div 
-                  className="flex-1 overflow-y-auto space-y-6 pr-4 custom-scrollbar pb-6"
-                  ref={scrollRef}
-                >
+                <div className="flex-1 overflow-y-auto space-y-8 pr-4 custom-scrollbar">
                   {messages.map((m, i) => (
-                    <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`max-w-[75%] p-4 text-[15px] leading-relaxed shadow-sm ${
+                    <motion.div 
+                      initial={{ opacity: 0, x: m.role === 'user' ? 20 : -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      key={i} 
+                      className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                    >
+                      <div className={`max-w-[85%] ${
                         m.role === 'user' 
-                          ? 'bg-[#1e1e24] text-slate-100 rounded-3xl rounded-br-sm border border-white/5' 
-                          : 'bg-transparent text-slate-300'
+                          ? 'glass-card border-purple-500/20 rounded-tr-none' 
+                          : 'bg-transparent border-none p-0'
                       }`}>
-                        {m.role === 'system' ? <div className="text-indigo-400 font-mono text-sm mb-1">SYSTEM</div> : null}
-                        {m.role === 'assistant' ? <div className="text-purple-400 flex items-center gap-2 font-medium text-sm mb-2"><Sparkles size={14}/> AI-Access</div> : null}
-                        {m.content}
+                        {m.role === 'system' && (
+                          <div className="flex items-center gap-2 text-purple-400 font-mono text-xs mb-2">
+                             <Terminal size={12} /> SYSTEM_KERNEL_INIT
+                          </div>
+                        )}
+                        {m.role === 'assistant' && (
+                          <div className="flex items-center gap-2 text-purple-400 font-bold text-xs mb-3 tracking-widest">
+                             <Sparkles size={14} className="animate-pulse" /> SHADOW_FORGE
+                          </div>
+                        )}
+                        <div className={`text-[15px] leading-relaxed ${m.role === 'assistant' ? 'text-text-primary' : 'text-gray-200'}`}>
+                           {m.content.split('\n').map((line, lid) => (
+                             <p key={lid} className="mb-2">{line}</p>
+                           ))}
+                        </div>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                   {isTyping && (
                     <div className="flex justify-start">
-                      <div className="bg-transparent text-slate-400 p-4 rounded-3xl flex gap-2 items-center">
-                         <Loader2 size={16} className="animate-spin text-indigo-400" /> Thinking...
-                      </div>
+                       <div className="flex gap-2 items-center text-xs text-text-muted font-mono">
+                          <Loader2 size={14} className="animate-spin" /> THINKING...
+                       </div>
                     </div>
                   )}
+                  <div ref={scrollRef} />
                 </div>
 
-                <div className="relative mt-2 p-1 rounded-3xl bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 backdrop-blur-md border border-white/10">
-                  <div className="flex bg-[#13141c] rounded-[22px] overflow-hidden">
-                    <input 
-                      type="text" 
-                      value={input}
-                      onChange={e => setInput(e.target.value)}
-                      onKeyDown={e => e.key === 'Enter' && handleSend()}
-                      placeholder="Ask me anything, mention files, or request code..." 
-                      className="w-full bg-transparent px-6 py-4 text-[15px] focus:outline-none text-slate-200 placeholder-slate-500"
-                    />
-                    <button 
-                      onClick={handleSend}
-                      disabled={!input.trim() || isTyping}
-                      className="px-6 flex items-center justify-center text-indigo-400 hover:text-indigo-300 disabled:opacity-50 disabled:hover:text-indigo-400 transition"
-                    >
-                      <Send size={20} className={input.trim() ? 'opacity-100' : 'opacity-0'} />
-                    </button>
-                  </div>
+                {/* Input Section */}
+                <div className="mt-8 relative">
+                   <div className="glass rounded-2xl p-2 flex items-center shadow-2xl">
+                      <input 
+                        type="text" 
+                        value={input}
+                        onChange={e => setInput(e.target.value)}
+                        onKeyDown={e => e.key === 'Enter' && handleSend()}
+                        placeholder={isSudo ? "Sudo mode active. Use full system access..." : "Ask anything..."} 
+                        className="flex-1 bg-transparent px-6 py-4 text-sm focus:outline-none placeholder-gray-600"
+                      />
+                      <button 
+                        onClick={handleSend}
+                        disabled={!input.trim() || isTyping}
+                        className={`p-4 rounded-xl transition-all ${
+                          input.trim() 
+                            ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/30' 
+                            : 'bg-white/5 text-gray-600'
+                        }`}
+                      >
+                        <Send size={18} />
+                      </button>
+                   </div>
                 </div>
               </motion.div>
             )}
 
             {activeTab === 'files' && (
-              <motion.div key="files" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="h-full p-6 w-full max-w-5xl mx-auto">
-                 <FileBrowser />
-              </motion.div>
+              <motion.div key="files" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="h-full p-6"><FileBrowser /></motion.div>
             )}
-
             {activeTab === 'code' && (
-              <motion.div key="code" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="h-full p-6 w-full max-w-6xl mx-auto">
-                 <CodeWorkspace />
-              </motion.div>
+              <motion.div key="code" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="h-full p-6"><CodeWorkspace /></motion.div>
             )}
-
             {activeTab === 'media' && (
-              <motion.div key="media" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="h-full p-6 w-full max-w-5xl mx-auto">
-                 <MediaStudio />
-              </motion.div>
+              <motion.div key="media" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="h-full p-6"><MediaStudio /></motion.div>
             )}
-
+            
             {activeTab === 'settings' && (
-              <motion.div key="settings" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="h-full p-8 w-full max-w-3xl mx-auto flex flex-col gap-8">
-                <div>
-                  <h2 className="text-3xl font-light text-slate-100 mb-2">Configuration</h2>
-                  <p className="text-slate-400">Manage your system integration and device tokens.</p>
-                </div>
-                
-                <div className="p-6 bg-[#13141c] border border-white/5 rounded-2xl shadow-xl">
-                  <h3 className="text-lg font-medium text-indigo-300 mb-2">Device Token Binding</h3>
-                  <p className="text-sm text-slate-400 mb-4">Paste the sync token generated from your Config Web Portal. This grants the Desktop Agent secure access to your AI models.</p>
-                  <div className="flex gap-3">
-                    <input 
-                      type="text" 
-                      value={token}
-                      onChange={e => setToken(e.target.value)}
-                      className="bg-[#0b0c10] border border-white/10 rounded-xl px-4 py-3 flex-1 focus:outline-none focus:border-indigo-500/50 transition font-mono text-sm"
-                      placeholder="e.g. AI-9F8X7D..."
-                    />
-                    <button onClick={submitToken} className="bg-indigo-600 hover:bg-indigo-500 transition px-6 py-3 rounded-xl font-medium text-white shadow-lg shadow-indigo-600/20">Bind System</button>
-                  </div>
-                  <p className="text-xs text-slate-500 mt-3">API keys stay in backend env only. Desktop app uses this token.</p>
-                </div>
-                
-                <div className="p-6 bg-[#13141c] border border-white/5 rounded-2xl shadow-xl">
-                  <h3 className="text-lg font-medium text-purple-300 mb-2">Exam Mode / Background Vision</h3>
-                  <p className="text-sm text-slate-400 mb-4">Toggle Exam mode from the system tray icon in your Windows Taskbar. Once enabled, press <strong>SHIFT</strong> at any time to instantly parse on-screen content and display the hidden answer overlay.</p>
-                  <div className="flex gap-2">
-                     <span className="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full font-medium border border-green-500/30">Overlay Active</span>
-                     <span className="px-3 py-1 bg-indigo-500/20 text-indigo-400 text-xs rounded-full font-medium border border-indigo-500/30">Shift Hook Ready</span>
-                  </div>
-                </div>
+              <motion.div key="settings" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="h-full p-12 max-w-3xl mx-auto space-y-12">
+                 <div className="space-y-2">
+                    <h2 className="text-4xl font-light tracking-tight">Core Settings</h2>
+                    <p className="text-text-muted">Configure your ShadowForge instance.</p>
+                 </div>
+                 
+                 <div className="glass-card space-y-6">
+                    <h3 className="text-purple-400 font-bold text-xs tracking-widest uppercase">System Sync</h3>
+                    <div className="flex gap-4">
+                       <input 
+                         type="text" 
+                         value={token}
+                         onChange={e => setToken(e.target.value)}
+                         className="flex-1 bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-xs font-mono"
+                         placeholder="SYNC_TOKEN"
+                       />
+                       <button onClick={submitToken} className="bg-purple-600 px-6 py-3 rounded-xl text-xs font-bold hover:bg-purple-500 transition">SYCHRONIZE</button>
+                    </div>
+                 </div>
+
+                 <div className="glass-card bg-red-500/5 border-red-500/20">
+                    <h3 className="text-red-400 font-bold text-xs tracking-widest uppercase mb-4">Danger Zone</h3>
+                    <p className="text-xs text-text-muted mb-4">Sudo mode allows the AI to execute system commands, modify settings, and access sensitive files. Use with caution.</p>
+                    <div className="flex items-center justify-between">
+                       <span className="text-xs font-bold">Unrestricted Access</span>
+                       <button 
+                        onClick={() => setIsSudo(!isSudo)}
+                        className={`px-4 py-2 rounded-lg text-[10px] font-bold border transition-all ${
+                          isSudo ? 'bg-red-600 border-red-500' : 'bg-transparent border-white/10'
+                        }`}
+                       >
+                         {isSudo ? 'DEACTIVATE SUDO' : 'ACTIVATE SUDO'}
+                       </button>
+                    </div>
+                 </div>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
       </div>
-    
-      {/* Global strict resets for UI aesthetics */}
-      <style>{`
-        input, button { font-family: inherit; }
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
-      `}</style>
     </div>
   );
 }
