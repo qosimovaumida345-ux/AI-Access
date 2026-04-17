@@ -1,148 +1,135 @@
-/* ============================================================
-   SHADOWFORGE — CSS CUSTOM PROPERTIES (DESIGN TOKENS)
-   All colors, fonts, spacing, shadows defined here.
-   Never hardcode values outside this file.
-   ============================================================ */
+/* ================================================================
+   SHADOWFORGE — DESIGN TOKENS
+   Single source of truth for all visual properties.
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=IBM+Plex+Mono:wght@300;400;500&display=swap');
 
 :root {
 
-  /* ── CORE COLORS ─────────────────────────────────────────── */
-  --color-void:          #03000a;   /* Deepest black background */
-  --color-abyss:         #070010;   /* Slightly lighter black   */
-  --color-dark:          #0d0018;   /* Card backgrounds         */
-  --color-surface:       #120020;   /* Elevated surfaces        */
-  --color-surface-2:     #1a0030;   /* Higher elevation         */
+  /* ── BACKGROUNDS ─────────────────────────────────────────── */
+  --c-void:        #040209;
+  --c-abyss:       #070312;
+  --c-deep:        #0c0520;
+  --c-surface:     rgba(14, 6, 32, 0.80);
+  --c-surface-2:   rgba(22, 10, 48, 0.88);
+  --c-raised:      rgba(32, 16, 64, 0.92);
 
-  /* ── PURPLE SPECTRUM ─────────────────────────────────────── */
-  --purple-deepest:      #1a0033;
-  --purple-dark:         #2d0057;
-  --purple-core:         #4a0080;
-  --purple-mid:          #6600cc;
-  --purple-bright:       #8800ff;
-  --purple-glow:         #aa44ff;
-  --purple-neon:         #cc88ff;
+  /* ── VIOLET SPECTRUM ─────────────────────────────────────── */
+  --v-900:   #1e1058;
+  --v-800:   #3b1fa0;
+  --v-700:   #5b21b6;
+  --v-600:   #7c3aed;
+  --v-500:   #8b5cf6;
+  --v-400:   #a78bfa;
+  --v-300:   #c4b5fd;
+  --v-200:   #ddd6fe;
 
-  /* ── BLOOD RED SPECTRUM ──────────────────────────────────── */
-  --red-void:            #1a0003;
-  --red-dark:            #3d0008;
-  --red-core:            #7a0010;
-  --red-mid:             #cc0018;
-  --red-bright:          #ff0015;
-  --red-neon:            #ff4455;
-  --red-glow:            #ff6677;
+  /* ── CYAN SPECTRUM ───────────────────────────────────────── */
+  --cy-700:  #0e7490;
+  --cy-600:  #0891b2;
+  --cy-500:  #06b6d4;
+  --cy-400:  #22d3ee;
+  --cy-300:  #67e8f9;
 
-  /* ── TEXT COLORS ─────────────────────────────────────────── */
-  --text-primary:        #f0e8ff;
-  --text-secondary:      #a080c0;
-  --text-muted:          #5a4070;
-  --text-ghost:          #2d1a3d;
-  --text-red:            var(--red-bright);
-  --text-purple:         var(--purple-glow);
-  --text-green:          #00ff88;
-  --text-yellow:         #ffcc00;
-  --text-mono:           #8888bb;
+  /* ── ACCENT COLORS ───────────────────────────────────────── */
+  --ac-red:    #dc2626;
+  --ac-rose:   #f43f5e;
+  --ac-amber:  #f59e0b;
+  --ac-green:  #10b981;
+  --ac-emerald:#059669;
 
-  /* ── BORDER COLORS ───────────────────────────────────────── */
-  --border-subtle:       rgba(102, 0, 204, 0.12);
-  --border-default:      rgba(102, 0, 204, 0.25);
-  --border-strong:       rgba(102, 0, 204, 0.5);
-  --border-red:          rgba(255, 0, 21, 0.2);
-  --border-red-strong:   rgba(255, 0, 21, 0.5);
+  /* ── TEXT ────────────────────────────────────────────────── */
+  --tx-primary:    #f1efff;
+  --tx-secondary:  #b3a8d4;
+  --tx-muted:      #6b5f8a;
+  --tx-ghost:      #2a1f3d;
+  --tx-accent:     var(--v-300);
+  --tx-cyan:       var(--cy-300);
 
-  /* ── GLOW / SHADOW ───────────────────────────────────────── */
-  --glow-purple-sm:      0 0 10px rgba(102, 0, 204, 0.4);
-  --glow-purple-md:      0 0 25px rgba(102, 0, 204, 0.5), 0 0 50px rgba(102, 0, 204, 0.2);
-  --glow-purple-lg:      0 0 40px rgba(102, 0, 204, 0.6), 0 0 80px rgba(102, 0, 204, 0.3);
-  --glow-red-sm:         0 0 10px rgba(255, 0, 21, 0.4);
-  --glow-red-md:         0 0 25px rgba(255, 0, 21, 0.5), 0 0 50px rgba(255, 0, 21, 0.2);
-  --glow-red-lg:         0 0 40px rgba(255, 0, 21, 0.6), 0 0 80px rgba(255, 0, 21, 0.3);
-  --shadow-card:         0 8px 32px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.4);
-  --shadow-elevated:     0 16px 48px rgba(0, 0, 0, 0.8), 0 4px 16px rgba(0, 0, 0, 0.5);
+  /* ── BORDERS ─────────────────────────────────────────────── */
+  --bd-subtle:  rgba(139, 92, 246, 0.08);
+  --bd-default: rgba(139, 92, 246, 0.18);
+  --bd-strong:  rgba(139, 92, 246, 0.40);
+  --bd-cyan:    rgba(34, 211, 238, 0.20);
+  --bd-white:   rgba(255, 255, 255, 0.07);
 
-  /* ── TYPOGRAPHY ──────────────────────────────────────────── */
-  --font-display:        'Nosifer', cursive;
-  --font-heading:        'Rajdhani', sans-serif;
-  --font-body:           'Rajdhani', sans-serif;
-  --font-mono:           'Share Tech Mono', monospace;
-
-  --size-xs:             0.65rem;
-  --size-sm:             0.8rem;
-  --size-base:           1rem;
-  --size-md:             1.15rem;
-  --size-lg:             1.4rem;
-  --size-xl:             1.8rem;
-  --size-2xl:            2.4rem;
-  --size-3xl:            3.2rem;
-  --size-4xl:            4.5rem;
-  --size-5xl:            6rem;
-
-  --weight-normal:       400;
-  --weight-medium:       500;
-  --weight-semibold:     600;
-  --weight-bold:         700;
-
-  --leading-tight:       1.1;
-  --leading-snug:        1.35;
-  --leading-normal:      1.6;
-  --leading-relaxed:     1.85;
-
-  --tracking-tight:      -0.03em;
-  --tracking-normal:     0;
-  --tracking-wide:       0.08em;
-  --tracking-wider:      0.15em;
-  --tracking-widest:     0.3em;
+  /* ── GLOWS & SHADOWS ─────────────────────────────────────── */
+  --gl-violet-sm: 0 0 16px rgba(109,40,217,0.30);
+  --gl-violet-md: 0 0 32px rgba(109,40,217,0.40), 0 0 64px rgba(109,40,217,0.15);
+  --gl-violet-lg: 0 0 60px rgba(109,40,217,0.50), 0 0 120px rgba(109,40,217,0.20);
+  --gl-cyan-sm:   0 0 16px rgba(34,211,238,0.25);
+  --gl-cyan-md:   0 0 32px rgba(34,211,238,0.35);
+  --sh-card:      0 8px 40px rgba(0,0,0,0.55), 0 2px 12px rgba(0,0,0,0.35);
+  --sh-elevated:  0 20px 60px rgba(0,0,0,0.70), 0 4px 20px rgba(0,0,0,0.40);
+  --sh-inset:     inset 0 1px 0 rgba(255,255,255,0.05);
 
   /* ── SPACING SCALE ───────────────────────────────────────── */
-  --space-1:    4px;
-  --space-2:    8px;
-  --space-3:    12px;
-  --space-4:    16px;
-  --space-5:    20px;
-  --space-6:    24px;
-  --space-8:    32px;
-  --space-10:   40px;
-  --space-12:   48px;
-  --space-16:   64px;
-  --space-20:   80px;
-  --space-24:   96px;
-  --space-32:   128px;
+  --sp-1:   4px;
+  --sp-2:   8px;
+  --sp-3:   12px;
+  --sp-4:   16px;
+  --sp-5:   20px;
+  --sp-6:   24px;
+  --sp-8:   32px;
+  --sp-10:  40px;
+  --sp-12:  48px;
+  --sp-16:  64px;
+  --sp-20:  80px;
+  --sp-24:  96px;
+  --sp-32: 128px;
 
   /* ── BORDER RADIUS ───────────────────────────────────────── */
-  --radius-sm:    2px;
-  --radius-md:    4px;
-  --radius-lg:    8px;
-  --radius-xl:    16px;
-  --radius-full:  9999px;
+  --r-sm:   6px;
+  --r-md:   10px;
+  --r-lg:   16px;
+  --r-xl:   24px;
+  --r-2xl:  32px;
+  --r-full: 9999px;
+
+  /* ── TYPOGRAPHY ──────────────────────────────────────────── */
+  --font-display: 'Syne', 'Segoe UI', sans-serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'IBM Plex Mono', 'JetBrains Mono', monospace;
+
+  --fs-xs:   11px;
+  --fs-sm:   13px;
+  --fs-base: 15px;
+  --fs-md:   17px;
+  --fs-lg:   20px;
+  --fs-xl:   24px;
+  --fs-2xl:  32px;
+  --fs-3xl:  42px;
+  --fs-4xl:  56px;
+  --fs-5xl:  72px;
+  --fs-6xl:  96px;
+
+  --lh-tight:  1.2;
+  --lh-snug:   1.4;
+  --lh-base:   1.6;
+  --lh-loose:  1.8;
 
   /* ── TRANSITIONS ─────────────────────────────────────────── */
-  --transition-fast:    0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-base:    0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow:    0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-spring:  0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-
-  /* ── Z-INDEX SCALE ───────────────────────────────────────── */
-  --z-background:  -10;
-  --z-canvas:       1;
-  --z-content:      10;
-  --z-floating:     50;
-  --z-navbar:       100;
-  --z-overlay:      200;
-  --z-modal:        300;
-  --z-toast:        400;
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in:     cubic-bezier(0.55, 0, 1, 0.45);
+  --dur-fast:    120ms;
+  --dur-base:    220ms;
+  --dur-slow:    380ms;
+  --dur-xslow:   600ms;
 
   /* ── LAYOUT ──────────────────────────────────────────────── */
-  --container-sm:   640px;
-  --container-md:   768px;
-  --container-lg:   1024px;
-  --container-xl:   1200px;
-  --container-2xl:  1400px;
-  --navbar-height:  72px;
+  --max-width:    1200px;
+  --nav-height:   72px;
+  --section-gap:  140px;
+
+  /* ── BLUR ────────────────────────────────────────────────── */
+  --blur-sm:    blur(8px);
+  --blur-base:  blur(16px) saturate(180%);
+  --blur-lg:    blur(32px) saturate(200%);
 }
 
-/* ── DARK MODE (always dark, this is just lock-in) ─────────── */
-@media (prefers-color-scheme: light) {
-  :root {
-    /* Force dark even if OS is light */
-    color-scheme: dark;
-  }
+/* ── DARK BASE OVERRIDES ─────────────────────────────────── */
+[data-theme="dark"] {
+  color-scheme: dark;
 }
